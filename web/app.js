@@ -13,7 +13,13 @@ const state = {
 	byCode: new Map(),
 	teams: [],
 	subsets: [],
+	// Deux notions distinctes : `selected` est la carte active au clavier
+	// et porte le liseré dans la grille ; `preview` est ce que montre le
+	// panneau. En mode Manquantes ils divergent : le panneau confirme la
+	// carte qui vient d'être cochée alors que le liseré se pose déjà sur
+	// la manquante suivante.
 	selected: null,
+	preview: null,
 	order: [],
 	filters: { q: '', team: '', subset: '', sort: 'number', missing: false, thumbs: false },
 };
@@ -218,22 +224,27 @@ async function setQty(card, rarity, qty) {
 }
 
 /**
- * Où va la sélection après un cochage. En mode Manquantes la carte vient
- * de disparaître de la grille : on saute sur la manquante suivante, sinon
- * on reste dessus pour pouvoir décrémenter.
+ * Après un cochage. Le panneau garde la carte qui vient d'être cochée —
+ * c'est la confirmation du clic — tandis que le liseré de la grille se
+ * pose sur la manquante suivante, prête pour la suite de la saisie.
  */
 function afterTick(card) {
 	if (state.filters.missing && card.in_goal && owned(card)) {
 		const next = nextMissing();
-		select(next ? next.code : null);
+		select(next ? next.code : null, { preview: false });
 	} else {
-		select(card.code);
+		select(card.code, { preview: false });
 	}
+	state.preview = card.code;
+	renderPreview();
 }
 
 /* ---------- sélection ---------- */
 
-function select(code, scroll = true) {
+// select pose le liseré de la grille et, sauf mention contraire,
+// l'aperçu qui suit normalement la navigation.
+function select(code, opts = {}) {
+	const { scroll = true, preview = true } = opts;
 	const prev = state.selected ? $(`.card[data-code="${CSS.escape(state.selected)}"]`) : null;
 	state.selected = code;
 	if (prev) prev.classList.remove('sel');
@@ -242,13 +253,16 @@ function select(code, scroll = true) {
 		next.classList.add('sel');
 		if (scroll) next.scrollIntoView({ block: 'nearest' });
 	}
+	if (preview) state.preview = code;
 	renderPreview();
 }
 
-// Les visuels plafonnent a 240 px : dans la grille ils seraient
-// illisibles, le panneau les affiche a leur taille reelle.
+// Le panneau affiche en priorite la carte qu'on vient de cocher, sinon la
+// carte active. Sans cette distinction, cocher une carte en mode
+// Manquantes fait sauter l'apercu sur une autre, et l'on ne voit plus
+// ce que l'on vient de cocher.
 function renderPreview() {
-	const card = state.selected ? state.byCode.get(state.selected) : null;
+	const card = state.byCode.get(state.preview || state.selected);
 	const box = $('#preview');
 	if (!card) {
 		box.hidden = true;
@@ -346,6 +360,13 @@ document.addEventListener('keydown', (e) => {
 		case 'Escape':
 			select(null);
 			break;
+		case 'n': {
+			e.preventDefault();
+			const next = nextMissing();
+			if (next) select(next.code);
+			else flash('Toutes les cartes de l’objectif sont cochées');
+			break;
+		}
 		default:
 			if (/^[0-9]$/.test(e.key)) {
 				e.preventDefault();
