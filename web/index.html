@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Topps Turbo Attax F1 2026</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="title">
+    <h1 id="set-name">…</h1>
+    <p id="set-meta" class="meta"></p>
+  </div>
+
+  <div class="progress">
+    <div class="bar"><div id="bar" class="fill"></div></div>
+    <p class="nums">
+      <strong id="have">0</strong> / <span id="goal">0</span>
+      <span id="pct" class="pct">0 %</span>
+    </p>
+    <p class="legend">
+      <span><b id="stat-duplicates">0</b> doublon<span id="pl-duplicates">s</span></span>
+      <span><b id="stat-variants">0</b> variante<span id="pl-variants">s</span></span>
+      <span><b id="stat-exclusives">0</b> / <span id="stat-exclusives-total">0</span> exclusifs</span>
+    </p>
+  </div>
+</header>
+
+<nav id="bar-tools">
+  <div class="field">
+    <input id="search" type="search" autocomplete="off" spellcheck="false"
+           placeholder="Rechercher : 316, Lando Norris, McLaren, TURBO CHROME…">
+  </div>
+
+  <label class="field">
+    <span class="sr-only">Écurie</span>
+    <select id="filter-team"><option value="">Toutes les écuries</option></select>
+  </label>
+
+  <label class="field">
+    <span class="sr-only">Série</span>
+    <select id="filter-subset"><option value="">Toutes les séries</option></select>
+  </label>
+
+  <label class="field">
+    <span class="sr-only">Tri</span>
+    <select id="filter-sort">
+      <option value="number">Par numéro</option>
+      <option value="name">Par nom</option>
+      <option value="missing">Manquantes d'abord</option>
+    </select>
+  </label>
+
+  <label class="check"><input type="checkbox" id="missing-only"> Manquantes</label>
+  <label class="check"><input type="checkbox" id="with-thumbs"> Images</label>
+  <button type="button" id="reset" class="ghost" title="Tout décocher">Réinitialiser</button>
+</nav>
+
+<p id="status" class="status" aria-live="polite"></p>
+
+<main id="grid" class="grid"></main>
+
+<p id="empty" class="empty" hidden>Aucune carte ne correspond à ces filtres.</p>
+
+<footer id="keys">
+  <span><kbd>/</kbd> recherche</span>
+  <span><kbd>n</kbd> nombre + <kbd>Entrée</kbd> cocher et avancer</span>
+  <span><kbd>+</kbd> / <kbd>-</kbd> quantité de la carte sélectionnée</span>
+  <span><kbd>m</kbd> manquantes</span>
+  <span><kbd>i</kbd> images</span>
+  <span><kbd>Échap</kbd> tout désélectionner</span>
+  <span class="mouse">Clic <b>+</b> · clic droit <b>−</b> · les pastilles cochent une rareté</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

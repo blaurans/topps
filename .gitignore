@@ -1,0 +1,12 @@
+# Données de collection : privées, jamais versionnées.
+# La base et les visuels vivent dans le volume ./data sur le serveur.
+/data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Fichiers de travail
+.DS_Store
+*.swp

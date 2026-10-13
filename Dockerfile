@@ -1,0 +1,35 @@
+# syntax=docker/dockerfile:1
+
+# ---- build ------------------------------------------------------------------
+# modernc.org/sqlite est du Go pur : CGO reste désactivé et le binaire
+# est statique, ce qui évite toute toolchain C dans l'image finale.
+FROM golang:1.27-alpine AS build
+WORKDIR /src
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN CGO_ENABLED=0 go vet ./... \
+ && CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /topps .
+
+# ---- runtime ----------------------------------------------------------------
+FROM alpine:3.22
+RUN apk add --no-cache ca-certificates tzdata \
+ && adduser -D -H -u 10001 topps \
+ && mkdir -p /data/thumbnails \
+ && chown -R topps:topps /data
+
+COPY --from=build /topps /usr/local/bin/topps
+
+USER topps
+ENV TOPPS_ADDR=:8080 \
+    TOPPS_DB=/data/topps.db \
+    TOPPS_THUMBS=/data/thumbnails
+EXPOSE 8080
+VOLUME ["/data"]
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
+  CMD wget -qO- http://127.0.0.1:8080/api/catalogue >/dev/null || exit 1
+
+ENTRYPOINT ["topps"]

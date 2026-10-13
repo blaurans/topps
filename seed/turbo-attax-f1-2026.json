@@ -1,0 +1,5250 @@
+{
+ "set": {
+  "slug": "turbo-attax-f1-2026",
+  "name": "Topps Turbo Attax Formula 1 2026",
+  "publisher": "Topps",
+  "season": "2026",
+  "goal_total": 353
+ },
+ "cards": [
+  {
+   "code": "1",
+   "num_sort": 1,
+   "name": "",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "2",
+   "num_sort": 2,
+   "name": "Andrea Stella",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "3",
+   "num_sort": 3,
+   "name": "Lando Norris & Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "4",
+   "num_sort": 4,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "5",
+   "num_sort": 5,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "6",
+   "num_sort": 6,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "7",
+   "num_sort": 7,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "8",
+   "num_sort": 8,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "9",
+   "num_sort": 9,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "10",
+   "num_sort": 10,
+   "name": "",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "11",
+   "num_sort": 11,
+   "name": "Toto Wolff",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "12",
+   "num_sort": 12,
+   "name": "George Russell & Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "13",
+   "num_sort": 13,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "14",
+   "num_sort": 14,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "15",
+   "num_sort": 15,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "16",
+   "num_sort": 16,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "17",
+   "num_sort": 17,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "18",
+   "num_sort": 18,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "19",
+   "num_sort": 19,
+   "name": "",
+   "team": "Oracle Red Bull Racing",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "20",
+   "num_sort": 20,
+   "name": "Laurent Mekies",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "21",
+   "num_sort": 21,
+   "name": "Max Verstappen & Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "22",
+   "num_sort": 22,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "23",
+   "num_sort": 23,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "24",
+   "num_sort": 24,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "25",
+   "num_sort": 25,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "26",
+   "num_sort": 26,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "27",
+   "num_sort": 27,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "28",
+   "num_sort": 28,
+   "name": "",
+   "team": "Scuderia Ferrari HP",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "29",
+   "num_sort": 29,
+   "name": "Frédéric Vasseur",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "30",
+   "num_sort": 30,
+   "name": "Charles Leclerc & Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "31",
+   "num_sort": 31,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "32",
+   "num_sort": 32,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "33",
+   "num_sort": 33,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "34",
+   "num_sort": 34,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "35",
+   "num_sort": 35,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "36",
+   "num_sort": 36,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "37",
+   "num_sort": 37,
+   "name": "",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "38",
+   "num_sort": 38,
+   "name": "James Vowles",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "39",
+   "num_sort": 39,
+   "name": "Alex Albon & Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "40",
+   "num_sort": 40,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "41",
+   "num_sort": 41,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "42",
+   "num_sort": 42,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "43",
+   "num_sort": 43,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "44",
+   "num_sort": 44,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "45",
+   "num_sort": 45,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "46",
+   "num_sort": 46,
+   "name": "",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "47",
+   "num_sort": 47,
+   "name": "Alan Permane",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "48",
+   "num_sort": 48,
+   "name": "Liam Lawson & Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "49",
+   "num_sort": 49,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "50",
+   "num_sort": 50,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "51",
+   "num_sort": 51,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "52",
+   "num_sort": 52,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "53",
+   "num_sort": 53,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "54",
+   "num_sort": 54,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "55",
+   "num_sort": 55,
+   "name": "",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "56",
+   "num_sort": 56,
+   "name": "Adrian Newey",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "57",
+   "num_sort": 57,
+   "name": "Fernando Alonso & Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "58",
+   "num_sort": 58,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "59",
+   "num_sort": 59,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "60",
+   "num_sort": 60,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "61",
+   "num_sort": 61,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "62",
+   "num_sort": 62,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "63",
+   "num_sort": 63,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "64",
+   "num_sort": 64,
+   "name": "",
+   "team": "TGR Haas F1 Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "65",
+   "num_sort": 65,
+   "name": "Ayao Komatsu",
+   "team": "TGR Haas F1 Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "66",
+   "num_sort": 66,
+   "name": "Oliver Bearman & Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "67",
+   "num_sort": 67,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "68",
+   "num_sort": 68,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "69",
+   "num_sort": 69,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "70",
+   "num_sort": 70,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "71",
+   "num_sort": 71,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "72",
+   "num_sort": 72,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "73",
+   "num_sort": 73,
+   "name": "",
+   "team": "Audi Revolut F1 Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "74",
+   "num_sort": 74,
+   "name": "Mattia Binotto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "75",
+   "num_sort": 75,
+   "name": "Nico Hulkenberg & Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "76",
+   "num_sort": 76,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "77",
+   "num_sort": 77,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "78",
+   "num_sort": 78,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "79",
+   "num_sort": 79,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "80",
+   "num_sort": 80,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "81",
+   "num_sort": 81,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "82",
+   "num_sort": 82,
+   "name": "",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "83",
+   "num_sort": 83,
+   "name": "Steve Nielsen",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "84",
+   "num_sort": 84,
+   "name": "Pierre Gasly & Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "85",
+   "num_sort": 85,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "86",
+   "num_sort": 86,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "87",
+   "num_sort": 87,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "88",
+   "num_sort": 88,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "89",
+   "num_sort": 89,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "90",
+   "num_sort": 90,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "91",
+   "num_sort": 91,
+   "name": "",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "F1 TEAM LOGOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "92",
+   "num_sort": 92,
+   "name": "Graeme Lowdon",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "2026 F1 TEAM PRINCIPALS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "93",
+   "num_sort": 93,
+   "name": "Sergio Perez & Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "2026 F1 DYNAMIC DUOS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "94",
+   "num_sort": 94,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "95",
+   "num_sort": 95,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "96",
+   "num_sort": 96,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "97",
+   "num_sort": 97,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "2026 F1 HERO",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "98",
+   "num_sort": 98,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "POWER IN NUMBERS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "99",
+   "num_sort": 99,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "LIGHTNING LIDS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "100",
+   "num_sort": 100,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "101",
+   "num_sort": 101,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "102",
+   "num_sort": 102,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "103",
+   "num_sort": 103,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "104",
+   "num_sort": 104,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "105",
+   "num_sort": 105,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "106",
+   "num_sort": 106,
+   "name": "Nico Hulkenberg",
+   "team": "KICK Sauber F1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "107",
+   "num_sort": 107,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "108",
+   "num_sort": 108,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "109",
+   "num_sort": 109,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "110",
+   "num_sort": 110,
+   "name": "Isack Hadjar",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "111",
+   "num_sort": 111,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "112",
+   "num_sort": 112,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "113",
+   "num_sort": 113,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "114",
+   "num_sort": 114,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "115",
+   "num_sort": 115,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "116",
+   "num_sort": 116,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "117",
+   "num_sort": 117,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "EPIC MOMENTS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "118",
+   "num_sort": 118,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "119",
+   "num_sort": 119,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "120",
+   "num_sort": 120,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "121",
+   "num_sort": 121,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "122",
+   "num_sort": 122,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "123",
+   "num_sort": 123,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "124",
+   "num_sort": 124,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "125",
+   "num_sort": 125,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "126",
+   "num_sort": 126,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "127",
+   "num_sort": 127,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "128",
+   "num_sort": 128,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "129",
+   "num_sort": 129,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "130",
+   "num_sort": 130,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "131",
+   "num_sort": 131,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "132",
+   "num_sort": 132,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "133",
+   "num_sort": 133,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "134",
+   "num_sort": 134,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "135",
+   "num_sort": 135,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "SPEED SILHOUETTES",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "136",
+   "num_sort": 136,
+   "name": "Sir Stirling Moss",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "137",
+   "num_sort": 137,
+   "name": "Sir Jack Brabham",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "138",
+   "num_sort": 138,
+   "name": "Graham Hill",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "139",
+   "num_sort": 139,
+   "name": "Sir Jackie Stewart",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "140",
+   "num_sort": 140,
+   "name": "Emerson Fittipaldi",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "141",
+   "num_sort": 141,
+   "name": "Jody Scheckter",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "142",
+   "num_sort": 142,
+   "name": "Riccardo Patrese",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "143",
+   "num_sort": 143,
+   "name": "Nigel Mansell",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "144",
+   "num_sort": 144,
+   "name": "Alain Prost",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "145",
+   "num_sort": 145,
+   "name": "Mika Häkkinen",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "146",
+   "num_sort": 146,
+   "name": "Michael Schumacher",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "147",
+   "num_sort": 147,
+   "name": "Damon Hill",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "148",
+   "num_sort": 148,
+   "name": "Rubens Barrichello",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "149",
+   "num_sort": 149,
+   "name": "Kimi Räikkönen",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "150",
+   "num_sort": 150,
+   "name": "Mark Webber",
+   "team": "",
+   "subset": "LEGENDS OF THE GRID",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "151",
+   "num_sort": 151,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2025 F1 SPRINT SUPERSTARS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "152",
+   "num_sort": 152,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2025 F1 SPRINT SUPERSTARS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "153",
+   "num_sort": 153,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2025 F1 SPRINT SUPERSTARS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "154",
+   "num_sort": 154,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2025 F1 SPRINT SUPERSTARS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "155",
+   "num_sort": 155,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2025 F1 SPRINT SUPERSTARS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "156",
+   "num_sort": 156,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2025 F1 SPRINT SUPERSTARS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "157",
+   "num_sort": 157,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "158",
+   "num_sort": 158,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "159",
+   "num_sort": 159,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "160",
+   "num_sort": 160,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "161",
+   "num_sort": 161,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "162",
+   "num_sort": 162,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "163",
+   "num_sort": 163,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "164",
+   "num_sort": 164,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "165",
+   "num_sort": 165,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "166",
+   "num_sort": 166,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "167",
+   "num_sort": 167,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "168",
+   "num_sort": 168,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "169",
+   "num_sort": 169,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "170",
+   "num_sort": 170,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "171",
+   "num_sort": 171,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "172",
+   "num_sort": 172,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "173",
+   "num_sort": 173,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "174",
+   "num_sort": 174,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "175",
+   "num_sort": 175,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "176",
+   "num_sort": 176,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "177",
+   "num_sort": 177,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "178",
+   "num_sort": 178,
+   "name": "Rubens Barrichello",
+   "team": "",
+   "subset": "DRIVERCORE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "179",
+   "num_sort": 179,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "NIGHT SHIFT",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "180",
+   "num_sort": 180,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "NIGHT SHIFT",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "181",
+   "num_sort": 181,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "NIGHT SHIFT",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "182",
+   "num_sort": 182,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "NIGHT SHIFT",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "183",
+   "num_sort": 183,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "NIGHT SHIFT",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "184",
+   "num_sort": 184,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "185",
+   "num_sort": 185,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "186",
+   "num_sort": 186,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "187",
+   "num_sort": 187,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "188",
+   "num_sort": 188,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "189",
+   "num_sort": 189,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "190",
+   "num_sort": 190,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "191",
+   "num_sort": 191,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "192",
+   "num_sort": 192,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "193",
+   "num_sort": 193,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "194",
+   "num_sort": 194,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "195",
+   "num_sort": 195,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "196",
+   "num_sort": 196,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "197",
+   "num_sort": 197,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "198",
+   "num_sort": 198,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "199",
+   "num_sort": 199,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "200",
+   "num_sort": 200,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "201",
+   "num_sort": 201,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "202",
+   "num_sort": 202,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "203",
+   "num_sort": 203,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "204",
+   "num_sort": 204,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "205",
+   "num_sort": 205,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "2026 F1 CAR",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "206",
+   "num_sort": 206,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "207",
+   "num_sort": 207,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "208",
+   "num_sort": 208,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "209",
+   "num_sort": 209,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "210",
+   "num_sort": 210,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "211",
+   "num_sort": 211,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "212",
+   "num_sort": 212,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "213",
+   "num_sort": 213,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "214",
+   "num_sort": 214,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "215",
+   "num_sort": 215,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "216",
+   "num_sort": 216,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "217",
+   "num_sort": 217,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "218",
+   "num_sort": 218,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "219",
+   "num_sort": 219,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "220",
+   "num_sort": 220,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "221",
+   "num_sort": 221,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "222",
+   "num_sort": 222,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "223",
+   "num_sort": 223,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "224",
+   "num_sort": 224,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "225",
+   "num_sort": 225,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "226",
+   "num_sort": 226,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "227",
+   "num_sort": 227,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "LA MONUMENTAL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "228",
+   "num_sort": 228,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "229",
+   "num_sort": 229,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "230",
+   "num_sort": 230,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "231",
+   "num_sort": 231,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "232",
+   "num_sort": 232,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "233",
+   "num_sort": 233,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "234",
+   "num_sort": 234,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "235",
+   "num_sort": 235,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "236",
+   "num_sort": 236,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "237",
+   "num_sort": 237,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "238",
+   "num_sort": 238,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "239",
+   "num_sort": 239,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "240",
+   "num_sort": 240,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "241",
+   "num_sort": 241,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "242",
+   "num_sort": 242,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "243",
+   "num_sort": 243,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "244",
+   "num_sort": 244,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "245",
+   "num_sort": 245,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "246",
+   "num_sort": 246,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "247",
+   "num_sort": 247,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "248",
+   "num_sort": 248,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "249",
+   "num_sort": 249,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "F1 TURBO ATTAX LEGACY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "250",
+   "num_sort": 250,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "CHAMPIONS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "251",
+   "num_sort": 251,
+   "name": "Leonardo Fornaroli",
+   "team": "Invicta Racing",
+   "subset": "CHAMPIONS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "252",
+   "num_sort": 252,
+   "name": "Rafael Câmara",
+   "team": "Trident",
+   "subset": "CHAMPIONS",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "253",
+   "num_sort": 253,
+   "name": "Richard Verschoor",
+   "team": "MP Motorsport",
+   "subset": "10 YEARS OF F2 - MOST SUCCESSFUL",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "254",
+   "num_sort": 254,
+   "name": "Joshua Dürksen",
+   "team": "Invicta Racing",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "255",
+   "num_sort": 255,
+   "name": "Colton Herta",
+   "team": "Hitech TGR",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "256",
+   "num_sort": 256,
+   "name": "Nikola Tsolov",
+   "team": "Campos Racing",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "257",
+   "num_sort": 257,
+   "name": "Dino Beganovic",
+   "team": "DAMS Lucas Oil",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "258",
+   "num_sort": 258,
+   "name": "Gabriele Minì",
+   "team": "MP Motorsport",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "259",
+   "num_sort": 259,
+   "name": "Mari Boya",
+   "team": "PREMA Racing",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "260",
+   "num_sort": 260,
+   "name": "Alexander Dunne",
+   "team": "Rodin Motorsport",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "261",
+   "num_sort": 261,
+   "name": "Kush Maini",
+   "team": "ART Grand Prix",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "262",
+   "num_sort": 262,
+   "name": "Emerson Fittipaldi",
+   "team": "AIX Racing",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "263",
+   "num_sort": 263,
+   "name": "Nico Varrone",
+   "team": "Van Amersfoort Racing",
+   "subset": "F2 ONE TO WATCH",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "264",
+   "num_sort": 264,
+   "name": "2026 F1 Car",
+   "team": "",
+   "subset": "TECHNICAL DRAWING",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "265",
+   "num_sort": 265,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "266",
+   "num_sort": 266,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "267",
+   "num_sort": 267,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "268",
+   "num_sort": 268,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "269",
+   "num_sort": 269,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "270",
+   "num_sort": 270,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "271",
+   "num_sort": 271,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "272",
+   "num_sort": 272,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "273",
+   "num_sort": 273,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "274",
+   "num_sort": 274,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "275",
+   "num_sort": 275,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "276",
+   "num_sort": 276,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "277",
+   "num_sort": 277,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "278",
+   "num_sort": 278,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "279",
+   "num_sort": 279,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "280",
+   "num_sort": 280,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "281",
+   "num_sort": 281,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "282",
+   "num_sort": 282,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "283",
+   "num_sort": 283,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "284",
+   "num_sort": 284,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "285",
+   "num_sort": 285,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "286",
+   "num_sort": 286,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "287",
+   "num_sort": 287,
+   "name": "Sir Jackie Stewart",
+   "team": "",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "288",
+   "num_sort": 288,
+   "name": "Mika Häkkinen",
+   "team": "",
+   "subset": "SIGNATURE STYLE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "289",
+   "num_sort": 289,
+   "name": "Sir Stirling Moss",
+   "team": "",
+   "subset": "100 CLUB (LEGEND)",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "290",
+   "num_sort": 290,
+   "name": "Graham Hill",
+   "team": "",
+   "subset": "100 CLUB (LEGEND)",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "291",
+   "num_sort": 291,
+   "name": "Alain Prost",
+   "team": "",
+   "subset": "100 CLUB (LEGEND)",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "292",
+   "num_sort": 292,
+   "name": "Rubens Barrichello",
+   "team": "",
+   "subset": "100 CLUB (LEGEND)",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "293",
+   "num_sort": 293,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "100 CLUB",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "294",
+   "num_sort": 294,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "100 CLUB",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "295",
+   "num_sort": 295,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "100 CLUB",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "296",
+   "num_sort": 296,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "100 CLUB",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "297",
+   "num_sort": 297,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "100 CLUB",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "298",
+   "num_sort": 298,
+   "name": "Nigel Mansell",
+   "team": "",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "299",
+   "num_sort": 299,
+   "name": "Damon Hill",
+   "team": "",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "300",
+   "num_sort": 300,
+   "name": "Kimi Räikkönen",
+   "team": "",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "301",
+   "num_sort": 301,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "302",
+   "num_sort": 302,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "303",
+   "num_sort": 303,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "304",
+   "num_sort": 304,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "305",
+   "num_sort": 305,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "306",
+   "num_sort": 306,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "BLACK EDGE",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "307",
+   "num_sort": 307,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "308",
+   "num_sort": 308,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "309",
+   "num_sort": 309,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "310",
+   "num_sort": 310,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "311",
+   "num_sort": 311,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "312",
+   "num_sort": 312,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "313",
+   "num_sort": 313,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "314",
+   "num_sort": 314,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "315",
+   "num_sort": 315,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "DIAMOND INFINITY",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "316",
+   "num_sort": 316,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "317",
+   "num_sort": 317,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "318",
+   "num_sort": 318,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "319",
+   "num_sort": 319,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "320",
+   "num_sort": 320,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "321",
+   "num_sort": 321,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "322",
+   "num_sort": 322,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "323",
+   "num_sort": 323,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "324",
+   "num_sort": 324,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "325",
+   "num_sort": 325,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "326",
+   "num_sort": 326,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "327",
+   "num_sort": 327,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "328",
+   "num_sort": 328,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "329",
+   "num_sort": 329,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "330",
+   "num_sort": 330,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "331",
+   "num_sort": 331,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "332",
+   "num_sort": 332,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "333",
+   "num_sort": 333,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "334",
+   "num_sort": 334,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "335",
+   "num_sort": 335,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "336",
+   "num_sort": 336,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "337",
+   "num_sort": 337,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "338",
+   "num_sort": 338,
+   "name": "Sir Stirling Moss",
+   "team": "",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "339",
+   "num_sort": 339,
+   "name": "Michael Schumacher",
+   "team": "",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "340",
+   "num_sort": 340,
+   "name": "Mark Webber",
+   "team": "",
+   "subset": "TURBO CHROME",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base",
+    "green",
+    "gold",
+    "orange",
+    "red",
+    "1of1"
+   ]
+  },
+  {
+   "code": "341",
+   "num_sort": 341,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "THE WINNING FORMULA",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "342",
+   "num_sort": 342,
+   "name": "Agent, Slow Pit Stop, Fast Pit Stop & Overtake Block",
+   "team": "",
+   "subset": "STRATEGY CARD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "343",
+   "num_sort": 343,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "344",
+   "num_sort": 344,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "345",
+   "num_sort": 345,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "346",
+   "num_sort": 346,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "347",
+   "num_sort": 347,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "348",
+   "num_sort": 348,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "349",
+   "num_sort": 349,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "350",
+   "num_sort": 350,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "351",
+   "num_sort": 351,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "352",
+   "num_sort": 352,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "353",
+   "num_sort": 353,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "F1 GOLD",
+   "kind": "numbered",
+   "in_goal": true,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 1",
+   "num_sort": 1000,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 2",
+   "num_sort": 1001,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 3",
+   "num_sort": 1002,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 4",
+   "num_sort": 1003,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 5",
+   "num_sort": 1004,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 6",
+   "num_sort": 1005,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 7",
+   "num_sort": 1006,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 8",
+   "num_sort": 1007,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 9",
+   "num_sort": 1008,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 10",
+   "num_sort": 1009,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GU 11",
+   "num_sort": 1010,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "GUARDIANS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 1",
+   "num_sort": 1011,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 2",
+   "num_sort": 1012,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 3",
+   "num_sort": 1013,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 4",
+   "num_sort": 1014,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 5",
+   "num_sort": 1015,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 6",
+   "num_sort": 1016,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 7",
+   "num_sort": 1017,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 8",
+   "num_sort": 1018,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 9",
+   "num_sort": 1019,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 10",
+   "num_sort": 1020,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "SUN 11",
+   "num_sort": 1021,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "SUNSHINE STATE",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 1",
+   "num_sort": 1022,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 2",
+   "num_sort": 1023,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 3",
+   "num_sort": 1024,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 4",
+   "num_sort": 1025,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 5",
+   "num_sort": 1026,
+   "name": "Sir Jack Brabham",
+   "team": "",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 6",
+   "num_sort": 1027,
+   "name": "Sir Jackie Stewart",
+   "team": "",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 7",
+   "num_sort": 1028,
+   "name": "Jody Scheckter",
+   "team": "",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "GG 8",
+   "num_sort": 1029,
+   "name": "Michael Schumacher",
+   "team": "",
+   "subset": "GREATS OF THE GRID",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 1",
+   "num_sort": 1030,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 2",
+   "num_sort": 1031,
+   "name": "Carlos Sainz",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 3",
+   "num_sort": 1032,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 4",
+   "num_sort": 1033,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 5",
+   "num_sort": 1034,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 6",
+   "num_sort": 1035,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 7",
+   "num_sort": 1036,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 8",
+   "num_sort": 1037,
+   "name": "Isack Hadjar",
+   "team": "Oracle Red Bull Racing",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 9",
+   "num_sort": 1038,
+   "name": "Sergio Perez",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 10",
+   "num_sort": 1039,
+   "name": "Arvid Lindblad",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 11",
+   "num_sort": 1040,
+   "name": "Gabriel Bortoleto",
+   "team": "Audi Revolut F1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 12",
+   "num_sort": 1041,
+   "name": "Kimi Antonelli",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 13",
+   "num_sort": 1042,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 14",
+   "num_sort": 1043,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 15",
+   "num_sort": 1044,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 16",
+   "num_sort": 1045,
+   "name": "Nico Hulkenberg",
+   "team": "Audi Revolut F1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 17",
+   "num_sort": 1046,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "LE 18",
+   "num_sort": 1047,
+   "name": "Valtteri Bottas",
+   "team": "Cadillac Formula 1 Team",
+   "subset": "LIMITED EDITIONS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "BG 1",
+   "num_sort": 1048,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "BLACK GOLD LIMITED EDITION* only available via Topps.com",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "BG 2",
+   "num_sort": 1049,
+   "name": "Franco Colapinto",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "BLACK GOLD LIMITED EDITION* only available via Topps.com",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-NOR",
+   "num_sort": 1050,
+   "name": "Lando Norris",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-VER",
+   "num_sort": 1051,
+   "name": "Max Verstappen",
+   "team": "Oracle Red Bull Racing",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-HAM",
+   "num_sort": 1052,
+   "name": "Lewis Hamilton",
+   "team": "Scuderia Ferrari HP",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-ALO",
+   "num_sort": 1053,
+   "name": "Fernando Alonso",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-STE",
+   "num_sort": 1054,
+   "name": "Sir Jackie Stewart",
+   "team": "",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-MAN",
+   "num_sort": 1055,
+   "name": "Nigel Mansell",
+   "team": "",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-HAK",
+   "num_sort": 1056,
+   "name": "Mika Häkkinen",
+   "team": "",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-RAI",
+   "num_sort": 1057,
+   "name": "Kimi Räikkönen",
+   "team": "",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-PRO",
+   "num_sort": 1058,
+   "name": "Alain Prost",
+   "team": "",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "MR-MSC",
+   "num_sort": 1059,
+   "name": "Michael Schumacher",
+   "team": "",
+   "subset": "MANUFACTURED RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-PIA",
+   "num_sort": 1060,
+   "name": "Oscar Piastri",
+   "team": "McLaren Mastercard Formula 1 Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-BEA",
+   "num_sort": 1061,
+   "name": "Oliver Bearman",
+   "team": "TGR Haas F1 Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-RUS",
+   "num_sort": 1062,
+   "name": "George Russell",
+   "team": "Mercedes-AMG PETRONAS Formula 1 Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-LEC",
+   "num_sort": 1063,
+   "name": "Charles Leclerc",
+   "team": "Scuderia Ferrari HP",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-LAW",
+   "num_sort": 1064,
+   "name": "Liam Lawson",
+   "team": "VISA Cash App Racing Bulls Formula One Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-GAS",
+   "num_sort": 1065,
+   "name": "Pierre Gasly",
+   "team": "BWT Alpine Formula One Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-OCO",
+   "num_sort": 1066,
+   "name": "Esteban Ocon",
+   "team": "TGR Haas F1 Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-STR",
+   "num_sort": 1067,
+   "name": "Lance Stroll",
+   "team": "Aston Martin Aramco Formula One Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-ALB",
+   "num_sort": 1068,
+   "name": "Alex Albon",
+   "team": "Atlassian Williams F1 Team",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  },
+  {
+   "code": "RR-WEB",
+   "num_sort": 1069,
+   "name": "Mark Webber",
+   "team": "",
+   "subset": "RACEDAY RELICS",
+   "kind": "exclusive",
+   "in_goal": false,
+   "variants": [
+    "base"
+   ]
+  }
+ ],
+ "rarities": [
+  {
+   "code": "base",
+   "label": "Base",
+   "ord": 0,
+   "capped": null
+  },
+  {
+   "code": "green",
+   "label": "Green Refractor",
+   "ord": 1,
+   "capped": 99
+  },
+  {
+   "code": "gold",
+   "label": "Gold Refractor",
+   "ord": 2,
+   "capped": 50
+  },
+  {
+   "code": "orange",
+   "label": "Orange Refractor",
+   "ord": 3,
+   "capped": 25
+  },
+  {
+   "code": "red",
+   "label": "Red Refractor",
+   "ord": 4,
+   "capped": 5
+  },
+  {
+   "code": "1of1",
+   "label": "Superfractor",
+   "ord": 5,
+   "capped": 1
+  }
+ ]
+}

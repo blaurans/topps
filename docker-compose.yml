@@ -1,0 +1,25 @@
+# Déploiement sur ociub.laurans.org.
+#
+#   ssh ociub && cd /app/topps && git pull && docker compose up -d --build
+#
+# Aucun port n'est publié : le service n'est atteignable que par le
+# reverse proxy (Caddy), qui est l'unique barrière d'accès — le vhost
+# topps.laurans.org exige un certificat client.
+
+services:
+  topps:
+    build: .
+    image: topps:latest
+    restart: unless-stopped
+    environment:
+      TOPPS_ADDR: ":8080"
+      TOPPS_SET: "turbo-attax-f1-2026"
+    volumes:
+      - ./data:/data
+    networks:
+      - guacamole_internal
+
+networks:
+  guacamole_internal:
+    external: true
+    name: guacamole_internal
