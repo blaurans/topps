@@ -151,23 +151,20 @@ redémarrer.
 
 Le serveur lit `--thumbs` (défaut `/data/thumbnails`) au démarrage et
 n'expose un visuel que pour les fichiers présents ; sinon la carte reste
-en texte.
+en texte. Les fichiers sont nommés d'après le code de la carte, avec
+espaces et barres remplacés par des tirets : `GU 1` → `GU-1.jpg`,
+`MR-NOR` → `MR-NOR.jpg`.
 
-Les visuels ne sont **pas** servis par le site de checklist lui-même mais
-par le bucket GCS de PriceCharting, où le nom de fichier est la largeur
-demandée. Seules trois largeurs existent : 60, 120 et **240 px**. C'est
-la raison du panneau d'aperçu plutôt que d'une vignette par case : à 240 px
-de haut, une image est lisible agrandie et floue réduite à 92 px.
+Deux sources automatisées, toutes deux sans OCR — l'identification se fait
+par le titre ou le lien, jamais en lisant un pixel.
 
-```sh
-python3 tools/fetch_images.py <page-enregistree.html> data/thumbnails
-```
+### Depuis le checklist en ligne (PriceCharting)
 
-La page du site est derrière Cloudflare, et même un navigateur piloté se
-fait bloquer : il faut l'enregistrer à la main. Surtout, **le site charge
-ses produits au défilement** (`loading="lazy"` sur chaque vignette), donc
-« Enregistrer la page complète » ne capture que les lignes déjà rendues —
-environ 150 sur 353. Il faut **scroller jusqu'en bas avant d'enregistrer**.
+Les visuels ne sont pas servis par le site de checklist lui-même mais par
+le bucket GCS de PriceCharting, où le nom de fichier est la largeur
+demandée : seules 60, 120 et **240 px** existent. La page est derrière
+Cloudflare et charge ses produits au défilement, donc il faut
+**scroller jusqu'en bas avant d'enregistrer** la page.
 
 ```sh
 python3 tools/fetch_images.py data/thumbnails <page.html> [page2.html ...]
@@ -176,12 +173,40 @@ python3 tools/fetch_images.py data/thumbnails <page.html> [page2.html ...]
 Plusieurs fichiers peuvent être passés : les correspondances sont
 fusionnées, ce qui permet de rattraper une collection sauvée en deux fois.
 
-Le script ne lit **aucune donnée de carte** là-bas — le checklist Topps
-reste la seule autorité.
+### Depuis eBay, en plein format
 
-Pour ajouter des images à la main, déposer `<code>.jpg` dans le dossier,
-avec le code normalisé (`GU 1` → `GU-1.jpg`, `MR-NOR` → `MR-NOR.jpg`) et
-redémarrer le service.
+eBay refuse les requêtes simples et détecte le mode headless. Ce qui passe,
+c'est un navigateur réel avec le profil du propriétaire : le script l'ouvre
+sur le bureau, fait défiler les résultats, extrait les annonces et
+télécharge chaque visuel en `s-l1600` — quatre fois la résolution des
+visuels PriceCharting.
+
+```sh
+python3 tools/ebay_harvest.py data/thumbnails \
+  "2026 turbo attax f1 gold" "2026 turbo attax turbo chrome" \
+  "2026 turbo attax diamond infinity" "2026 turbo attax black edge"
+```
+
+L'identification se fait par le titre de l'annonce, dans l'ordre de
+fiabilité : un code d'exclusif écrit en clair (`MR-HAM`, `LE4`), un numéro
+précédé de `#`, sinon le nom du pilote croisé avec la sous-série. Les
+annonces qui ne correspondent à rien sont ignorées plutôt que de risquer
+de ranger une image sous le mauvais numéro.
+
+Les images récupérées remplacent les basse résolution quand elles se
+recouvrent. 315 visuels sont présents au total, dont 310 des 353 numérotées.
+
+### Ajouter des images à la main
+
+Déposer `<code>.jpg` dans le dossier et redémarrer le service.
+
+### Pourquoi un panneau d'aperçu
+
+Les visuels récupérés plafonnent autour de 240 px de haut, et ceux d'eBay
+sont lourds (jusqu'à 517 Ko). À la taille d'une vignette de grille, ils
+seraient illisibles ou lents. Le panneau affiche donc la carte sélectionnée
+à sa taille réelle — c'est la confirmation du clic — pendant que le liseré
+de la grille se pose déjà sur la manquante suivante.
 
 ## API
 
