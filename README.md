@@ -151,11 +151,29 @@ redémarrer.
 
 Le serveur lit `--thumbs` (défaut `/data/thumbnails`) au démarrage et
 n'expose un visuel que pour les fichiers présents ; sinon la carte reste
-en texte. Aucun visuel n'est versionné ici : la source disponible ne
-proposait que des vignettes de 42×60 px, inutilisables.
+en texte.
 
-Pour en ajouter, déposer `<code>.jpg` dans le dossier, avec le code
-normalisé (`GU 1` → `GU-1.jpg`, `MR-NOR` → `MR-NOR.jpg`) et redémarrer.
+Les visuels ne sont **pas** servis par le site de checklist lui-même mais
+par le bucket GCS de PriceCharting, où le nom de fichier est la largeur
+demandée. Seules trois largeurs existent : 60, 120 et **240 px**. C'est
+la raison du panneau d'aperçu plutôt que d'une vignette par case : à 240 px
+de haut, une image est lisible agrandie et floue réduite à 92 px.
+
+```sh
+python3 tools/fetch_images.py <page-enregistree.html> data/thumbnails
+```
+
+La page du site est derrière Cloudflare : c'est le navigateur qui doit la
+télécharger (*Enregistrer la page complète*), le script lit ensuite le HTML
+ainsi enregistré. Il ne lit **aucune donnée de carte** là-bas — le
+checklist Topps reste la seule autorité.
+
+144 visuels existent pour cette édition, soit 41 % des numérotées. Les
+cartes sans visuel restent utilisables en texte.
+
+Pour ajouter des images à la main, déposer `<code>.jpg` dans le dossier,
+avec le code normalisé (`GU 1` → `GU-1.jpg`, `MR-NOR` → `MR-NOR.jpg`) et
+redémarrer le service.
 
 ## API
 

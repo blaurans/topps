@@ -205,6 +205,39 @@ body.thumbs .card.has-thumb .thumb {
   margin: 2px 0 3px; background: var(--bg-alt); border-radius: 3px;
 }
 
+/* ---------- aperçu de la carte sélectionnée ---------- */
+
+/* Les visuels disponibles plafonnent à 240 px de haut : ils ne sont
+   lisibles qu'agrandis, d'où un panneau plutôt qu'une vignette par
+   carte dans la grille. */
+#preview {
+  position: fixed; right: 16px; bottom: 44px; z-index: 7;
+  display: flex; gap: 10px; align-items: flex-start;
+  max-width: 340px; padding: 10px;
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: 8px; box-shadow: 0 8px 28px rgb(0 0 0 / .45);
+}
+#preview[hidden] { display: none; }
+#preview-img {
+  width: 110px; height: auto; max-height: 160px; object-fit: contain;
+  background: var(--bg-alt); border-radius: 4px;
+}
+#preview-img:not([src]) { display: none; }
+#preview .details { min-width: 0; flex: 1; }
+.p-code {
+  margin: 0 0 3px; display: flex; gap: 8px; align-items: center;
+  font-family: var(--mono); font-size: 11px; color: var(--fg-faint);
+}
+#p-qty { color: var(--have); font-weight: 700; }
+.p-name { margin: 0; font-size: 13px; font-weight: 600; }
+.p-team { margin: 2px 0 0; font-size: 11.5px; color: var(--fg-dim); }
+.p-subset {
+  margin: 3px 0 0; font-family: var(--mono); font-size: 10px;
+  color: var(--fg-faint);
+}
+
+@media (max-width: 720px) { #preview { display: none !important; } }
+
 /* ---------- pied ---------- */
 
 footer#keys {

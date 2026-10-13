@@ -172,10 +172,35 @@ function flash(msg, isError = false) {
 
 /* ---------- écritures ---------- */
 
+// patchCard remplace une seule cellule. Renvoie false si la carte n'est
+// plus dans le DOM, cas où il faut refaire la grille entière.
+function patchCard(card) {
+	const el = $(`.card[data-code="${CSS.escape(card.code)}"]`);
+	if (!el) return false;
+	const tmp = document.createElement('div');
+	tmp.innerHTML = cardHTML(card);
+	el.replaceWith(tmp.firstElementChild);
+	return true;
+}
+
+// sync réaligne l'affichage après un changement. En mode Manquantes la
+// carte cochée ne doit plus figurer dans la grille : c'est le filtre qui
+// décide, pas la présence résiduelle dans le DOM.
+function sync(card) {
+	const horsFiltre = state.filters.missing && card.in_goal && owned(card);
+	if (!horsFiltre && patchCard(card)) {
+		renderStats();
+		renderStatus(visibleCards());
+	} else {
+		render();
+	}
+	renderPreview();
+}
+
 async function setQty(card, rarity, qty) {
 	const before = card.qty[rarity] || 0;
 	card.qty[rarity] = qty;
-	if (!state.filters.missing || qty > 0 || !card.in_goal) refreshCard(card);
+	sync(card);
 
 	try {
 		const res = await fetch('/api/holding', {
@@ -184,26 +209,26 @@ async function setQty(card, rarity, qty) {
 			body: JSON.stringify({ card: card.code, rarity, qty }),
 		});
 		if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || res.statusText);
-		refreshCard(card);
+		sync(card);
 	} catch (err) {
 		card.qty[rarity] = before;
-		refreshCard(card);
+		sync(card);
 		flash(`Échec de l'écriture : ${err.message}`, true);
 	}
 }
 
-// refreshCard re-rend la carte seule si elle est toujours visible, sinon
-// la grille entière (filtre « manquantes », tri, compteurs).
-function refreshCard(card) {
-	const el = $(`.card[data-code="${CSS.escape(card.code)}"]`);
-	if (!el) {
-		render();
-		return;
+/**
+ * Où va la sélection après un cochage. En mode Manquantes la carte vient
+ * de disparaître de la grille : on saute sur la manquante suivante, sinon
+ * on reste dessus pour pouvoir décrémenter.
+ */
+function afterTick(card) {
+	if (state.filters.missing && card.in_goal && owned(card)) {
+		const next = nextMissing();
+		select(next ? next.code : null);
+	} else {
+		select(card.code);
 	}
-	const tmp = document.createElement('div');
-	tmp.innerHTML = cardHTML(card);
-	el.replaceWith(tmp.firstElementChild);
-	renderStats();
 }
 
 /* ---------- sélection ---------- */
@@ -217,6 +242,39 @@ function select(code, scroll = true) {
 		next.classList.add('sel');
 		if (scroll) next.scrollIntoView({ block: 'nearest' });
 	}
+	renderPreview();
+}
+
+// Les visuels plafonnent a 240 px : dans la grille ils seraient
+// illisibles, le panneau les affiche a leur taille reelle.
+function renderPreview() {
+	const card = state.selected ? state.byCode.get(state.selected) : null;
+	const box = $('#preview');
+	if (!card) {
+		box.hidden = true;
+		return;
+	}
+	box.hidden = false;
+
+	const img = $('#preview-img');
+	if (card.thumb) {
+		const src = `/thumb/${encodeURIComponent(card.code)}.jpg`;
+		if (img.getAttribute('src') !== src) img.src = src;
+		img.hidden = false;
+	} else {
+		img.removeAttribute('src');
+		img.hidden = true;
+	}
+
+	$('#p-code').textContent = card.code;
+	const b = baseQty(card);
+	const extra = card.variants
+		.filter((r) => r !== 'base' && (card.qty[r] || 0) > 0)
+		.map((r) => `${RARITY_SHORT[r] || r}×${card.qty[r]}`);
+	$('#p-qty').textContent = [b ? `×${b}` : '', ...extra].join(' ');
+	$('#p-name').textContent = card.name || card.team || '—';
+	$('#p-team').textContent = card.team;
+	$('#p-subset').textContent = card.subset;
 }
 
 /** Carte manquante suivante dans l'ordre courant, en boucle. */
@@ -235,14 +293,7 @@ function bump(delta) {
 	const card = state.byCode.get(state.selected);
 	if (!card) return;
 	setQty(card, 'base', Math.max(0, baseQty(card) + delta));
-	if (delta > 0 && state.filters.missing) {
-		const next = nextMissing();
-		if (next) {
-			select(next.code);
-			return;
-		}
-	}
-	select(card.code);
+	afterTick(card);
 }
 
 /* ---------- surcharge clavier ---------- */
@@ -259,8 +310,7 @@ function goToNumber(value) {
 	$('#search').value = '';
 	render();
 	setQty(card, 'base', baseQty(card) + 1);
-	const after = nextMissing();
-	select(after && after.code !== card.code ? after.code : card.code);
+	afterTick(card);
 	return true;
 }
 
@@ -315,14 +365,14 @@ $('#grid').addEventListener('click', (e) => {
 		const card = state.byCode.get(chip.closest('.card').dataset.code);
 		const rarity = chip.dataset.rarity;
 		setQty(card, rarity, (card.qty[rarity] || 0) > 0 ? 0 : 1);
-		select(card.code);
+		afterTick(card);
 		return;
 	}
 	const cell = e.target.closest('.card');
 	if (!cell) return;
 	const card = state.byCode.get(cell.dataset.code);
 	setQty(card, 'base', baseQty(card) + 1);
-	select(card.code);
+	afterTick(card);
 });
 
 $('#grid').addEventListener('contextmenu', (e) => {
@@ -331,7 +381,7 @@ $('#grid').addEventListener('contextmenu', (e) => {
 	e.preventDefault();
 	const card = state.byCode.get(cell.dataset.code);
 	setQty(card, 'base', Math.max(0, baseQty(card) - 1));
-	select(card.code);
+	afterTick(card);
 });
 
 /* ---------- filtres ---------- */
@@ -343,8 +393,10 @@ function fillSelect(sel, values, allLabel) {
 
 function bindFilter(id, key, after) {
 	$(id).addEventListener('input', (e) => {
-		const v = e.target.value;
-		state.filters[key] = typeof v === 'boolean' ? v : v;
+		const el = e.target;
+		// Pour une case à cocher, .value vaut toujours "on" : c'est
+		// .checked qui porte l'état, sinon impossible de décocher.
+		state.filters[key] = el.type === 'checkbox' ? el.checked : el.value;
 		saveFilters();
 		render();
 		if (after) after();
@@ -387,8 +439,8 @@ async function boot() {
 	$('#filter-team').value = f.team;
 	$('#filter-subset').value = f.subset;
 	$('#filter-sort').value = f.sort;
-	$('#missing-only').checked = f.missing;
-	$('#with-thumbs').checked = f.thumbs;
+	$('#missing-only').checked = Boolean(f.missing);
+	$('#with-thumbs').checked = Boolean(f.thumbs);
 
 	bindFilter('#search', 'q');
 	bindFilter('#filter-team', 'team');
