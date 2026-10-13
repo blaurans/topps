@@ -14,9 +14,12 @@ RUN CGO_ENABLED=0 go vet ./... \
  && CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /topps .
 
 # ---- runtime ----------------------------------------------------------------
+# Aucun `apk add` : l'application ne sort pas en HTTPS (donc pas besoin
+# de ca-certificates) et journalise en UTC (donc pas besoin de tzdata).
+# `adduser` vient de busybox. L'image finale ne dépend donc d'aucun
+# miroir de paquets au moment du build.
 FROM alpine:3.22
-RUN apk add --no-cache ca-certificates tzdata \
- && adduser -D -H -u 10001 topps \
+RUN adduser -D -H -u 10001 topps \
  && mkdir -p /data/thumbnails \
  && chown -R topps:topps /data
 
