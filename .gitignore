@@ -13,3 +13,7 @@
 
 # Sauvegardes
 /backups/
+
+# Python
+__pycache__/
+*.pyc
