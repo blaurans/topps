@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
-"""Recupere les visuels de cartes depuis une page « Enregistrer la page ».
+"""Recupere les visuels de cartes depuis une ou plusieurs pages HTML.
 
 L'image d'origine n'est pas servie par le site lui-meme mais par le
 bucket Google Cloud Storage de PriceCharting, dont le nom de fichier est
 la largeur demandee : 60, 120 et 240 px sont les seules valeurs servies.
 On demande donc 240, le maximum disponible.
 
-La page Cloudflare du site est inaccessible hors navigateur : c'est le
-navigateur de l'utilisateur qui a telecharge la page, et ce script lit le
-HTML ainsi enregistre. Aucune donnee de carte n'est lue la : le
-checklist officiel Topps reste la seule autorite, celui-ci n'apporte que
-les visuels.
+La page du site est derriere Cloudflare : inaccessible en dehors d'un
+navigateur, et meme un navigateur pilote se fait bloquer. La page se
+charge au defilement (`loading="lazy"` sur chaque vignette) : une
+sauvegarde « page complete » ne capture que les lignes deja rendues, soit
+environ 150 sur 353. Il faut donc scroller jusqu'en bas *avant* de
+sauvegarder, et passer plusieurs fichiers ici si la collection a ete
+partee en plusieurs sauvegardes — les correspondances sont fusionnees.
+
+Aucune donnee de carte n'est lue la : le checklist officiel Topps reste
+la seule autorite, ceci n'apporte que les visuels.
 
 Usage :
-    python3 tools/fetch_images.py <page-enregistree.html> <dossier-cible>
+    python3 tools/fetch_images.py <dossier-cible> <page.html> [page2.html ...]
 """
 
 import concurrent.futures
@@ -33,12 +38,20 @@ PRODUCT_RE = re.compile(
 )
 
 
-def parse(html_path: pathlib.Path) -> dict:
-    """numero de carte -> identifiant PriceCharting."""
-    s = html_path.read_text(encoding="utf-8", errors="replace")
+def parse(html_paths: list[pathlib.Path]) -> dict:
+    """numero de carte -> identifiant PriceCharting, fusionne sur plusieurs pages.
+
+    Une meme page peut contenir deux fois la meme carte si le site a
+    charge le produit parLots : le premier identifiant vu gagne.
+    """
     out = {}
-    for num, ident in PRODUCT_RE.findall(s):
-        out[num] = ident
+    for path in html_paths:
+        s = path.read_text(encoding="utf-8", errors="replace")
+        found = {num: ident for num, ident in PRODUCT_RE.findall(s)}
+        new = [n for n in found if n not in out]
+        print(f"  {path.name} : {len(found)} produits, {len(new)} nouveaux")
+        for num, ident in found.items():
+            out.setdefault(num, ident)
     return dict(sorted(out.items(), key=lambda kv: int(kv[0])))
 
 
@@ -58,14 +71,16 @@ def fetch(ident: str, dest: pathlib.Path, timeout: int = 20) -> bool:
 
 
 def main():
-    if len(sys.argv) < 3:
+    args = sys.argv[1:]
+    if len(args) < 2:
         sys.exit(__doc__)
-    html_path = pathlib.Path(sys.argv[1])
-    dest = pathlib.Path(sys.argv[2])
+    dest = pathlib.Path(args[0])
+    html_paths = [pathlib.Path(a) for a in args[1:]]
     dest.mkdir(parents=True, exist_ok=True)
 
-    mapping = parse(html_path)
-    print(f"produits trouves dans la page : {len(mapping)}")
+    print("pages lues :")
+    mapping = parse(html_paths)
+    print(f"produits distincts : {len(mapping)}")
 
     ok = failed = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:

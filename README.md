@@ -163,13 +163,21 @@ de haut, une image est lisible agrandie et floue réduite à 92 px.
 python3 tools/fetch_images.py <page-enregistree.html> data/thumbnails
 ```
 
-La page du site est derrière Cloudflare : c'est le navigateur qui doit la
-télécharger (*Enregistrer la page complète*), le script lit ensuite le HTML
-ainsi enregistré. Il ne lit **aucune donnée de carte** là-bas — le
-checklist Topps reste la seule autorité.
+La page du site est derrière Cloudflare, et même un navigateur piloté se
+fait bloquer : il faut l'enregistrer à la main. Surtout, **le site charge
+ses produits au défilement** (`loading="lazy"` sur chaque vignette), donc
+« Enregistrer la page complète » ne capture que les lignes déjà rendues —
+environ 150 sur 353. Il faut **scroller jusqu'en bas avant d'enregistrer**.
 
-144 visuels existent pour cette édition, soit 41 % des numérotées. Les
-cartes sans visuel restent utilisables en texte.
+```sh
+python3 tools/fetch_images.py data/thumbnails <page.html> [page2.html ...]
+```
+
+Plusieurs fichiers peuvent être passés : les correspondances sont
+fusionnées, ce qui permet de rattraper une collection sauvée en deux fois.
+
+Le script ne lit **aucune donnée de carte** là-bas — le checklist Topps
+reste la seule autorité.
 
 Pour ajouter des images à la main, déposer `<code>.jpg` dans le dossier,
 avec le code normalisé (`GU 1` → `GU-1.jpg`, `MR-NOR` → `MR-NOR.jpg`) et
