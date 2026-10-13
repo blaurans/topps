@@ -87,23 +87,65 @@ Puis <http://127.0.0.1:8080>.
 
 ```sh
 ssh ociub
-git clone https://github.com/blaurans/topps /app/topps   # la première fois
-cd /app/topps && git pull && docker compose up -d --build
+git clone https://github.com/blaurans/topps /app/topps   # la premiere fois
+cd /app/topps
+sudo chown -R 10001:10001 data && sudo chmod 700 data     # le conteneur est non-root
+docker compose up -d --build
 ```
 
-Aucun port n'est publié : le service est joignable uniquement par Caddy,
-qui sert le vhost `topps.laurans.org` **exigeant un certificat client**.
-Le réseau `guacamole_internal` est externe, partagé avec les autres
-services du serveur, et le conteneur s'y attache sous le nom `topps`.
+Ensuite :
+
+```sh
+git pull --ff-only && docker compose up -d --build
+```
+
+Aucun port n'est publié : le service n'est atteignable que par Caddy, qui
+sert le vhost `topps.laurans.org` **exigeant un certificat client**. Le
+réseau `guacamole_internal` est externe, partagé avec les autres services
+du serveur, et le conteneur s'y attache sous le nom `topps`.
+
+### Deux particularites d'ociub
+
+**Le DNS ne marche pas dans les conteneurs en pont.** Ils héritent d'un
+nameserver link-local (`169.254.169.254`) non routable depuis leur
+namespace. Sans effet sur l'application, qui ne résout que des noms de
+service via le DNS intégré de Docker, mais le build échoue sur
+`proxy.golang.org`. D'où `build.network: host` dans le compose : le build
+utilise le réseau de l'hôte, l'exécution reste sur `guacamole_internal`.
+
+**Le miroir APK d'Alpine n'est pas fiable depuis le VPS.** D'où pas de
+`apk add` dans l'image finale : ni `ca-certificates` (l'application ne
+sort pas en HTTPS) ni `tzdata` (les journaux sont en UTC). `adduser` vient
+de busybox.
+
+### Reverse proxy
+
+Le vhost est dans le Caddyfile de la stack Guacamole, qui possede deja les
+ports 80 et 443 :
+
+```sh
+docker exec guacamole-caddy-1 caddy validate --config /etc/caddy/Caddyfile
+docker exec guacamole-caddy-1 caddy reload  --config /etc/caddy/Caddyfile --force
+```
+
+Caddy resout `topps` au chargement de la configuration : apres un
+`--force-recreate` qui changerait l'IP du conteneur, un `caddy reload`
+peut etre necessaire. C'est le meme comportement que `driveco`.
 
 ### Sauvegarde
 
+`backup.sh` utilise `VACUUM INTO` : une copie cohérente à chaud, sans
+arrêter le service (un `cp` sur une base en WAL ne le serait pas). Il
+tourne tous les jours a 4h17 via `/etc/cron.d/topps-backup` et garde 30
+jours.
+
 ```sh
-ssh ociub 'docker compose -f /app/topps/docker-compose.yml run --rm \
-  -v /app/topps/backups:/backup topps -backup /backup/$(date +%F).db'
+sh backup.sh                       # a la main
+ls backups/
 ```
 
-`VACUUM INTO` produit une copie cohérente à chaud, sans arrêter le service.
+Restauration : arrêter le service, poser le fichier dans `data/topps.db`,
+redémarrer.
 
 ## Visuels
 
