@@ -10,3 +10,6 @@
 # Fichiers de travail
 .DS_Store
 *.swp
+
+# Sauvegardes
+/backups/
