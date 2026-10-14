@@ -61,19 +61,24 @@ def charger_catalogue() -> dict:
     return {c["code"]: (c["name"], c["team"], c["subset"]) for c in doc["cards"]}
 
 
-def index_codes(catalogue: dict) -> list[tuple[str, str]]:
-    """(forme compacte sans tiret, code) tries par longueur decroissante.
+def index_codes(catalogue: dict) -> list[tuple[re.Pattern, str]]:
+    """Motifs de recherche pour les codes d'exclusifs, du plus long au plus court.
 
-    « MR-HAM » devient « MRHAM », « LE 5 » devient « LE5 » : en cherchant
-    ces formes dans un titre normalise on lit l'identifiant sans OCR.
+    « MR-HAM » devient MR[\\s\\-_.]*HAM\\b, « LE 5 » devient LE[\\s\\-_.]*5\\b.
+    Les separateurs du titre sont tolérés, mais les frontieres de mots sont
+    exigees aux deux bouts : sans cela, « LE 5 » reconnaitrait « SA-LE 5 »,
+    et « LE 1 » reconnaitrait « LE 13 » dont le 3 est collé.
     """
-    out = []
+    motifs = []
     for code in catalogue:
-        compact = code.replace("-", "").upper()
-        if compact.isdigit():
+        if code.isdigit():
             continue
-        out.append((compact, code))
-    return sorted(out, key=lambda t: -len(t[0]))
+        morceaux = [p for p in re.split(r"[^A-Za-z0-9]+", code) if p]
+        if not morceaux:
+            continue
+        motif = r"\b" + r"[\s\-_.]*".join(re.escape(p) for p in morceaux) + r"\b"
+        motifs.append((re.compile(motif, re.I), code))
+    return sorted(motifs, key=lambda t: -len(t[0].pattern))
 
 
 def lire_nom(titre: str, catalogue: dict) -> str | None:
@@ -102,7 +107,7 @@ def lire_nom(titre: str, catalogue: dict) -> str | None:
     return meilleur if score >= 1.0 else None
 
 
-def trouver_numero(titre: str, catalogue: dict, codes: list[tuple[str, str]]) -> str | None:
+def trouver_numero(titre: str, catalogue: dict, codes: list[tuple[re.Pattern, str]]) -> str | None:
     """Code de carte depuis un titre, ou None si ambigu.
 
     Quatre strategies, de la plus fiable a la plus faible :
@@ -114,10 +119,9 @@ def trouver_numero(titre: str, catalogue: dict, codes: list[tuple[str, str]]) ->
     if BRUIT.search(titre):
         return None
 
-    # 1. codes d'exclusifs, formes compactes dans le titre epure.
-    t_compact = re.sub(r"[^A-Z0-9]", "", titre.upper())
-    for compact, code in codes:
-        if compact in t_compact:
+    # 1. codes d'exclusifs, avec frontieres de mots.
+    for motif, code in codes:
+        if motif.search(titre):
             return code
 
     # 2. numero explicite.
