@@ -49,6 +49,7 @@
 | `tools/parse_checklist.py` | régénère le seed depuis le PDF officiel |
 | `tools/fetch_images.py` | récupère les visuels PriceCharting depuis une page enregistrée |
 | `tools/ebay_harvest.py` | récupère les visuels eBay en 1600 px, dans un navigateur réel |
+| `tools/import_photos.py` | importe des photos personnelles : HEIC → JPEG, nom confronté au catalogue |
 | `.env.example` | **modèle** des identifiants Google — le vrai `.env` est sur le serveur, jamais versionné |
 | `backup.sh` | copie cohérente de la base à chaud |
 | `Dockerfile`, `docker-compose.yml` | image et stack |
@@ -95,10 +96,15 @@
   `state`, un `nonce` et un `code_challenge` S256.
 
 ### Visuels
-- **335 cartes avec visuel** sur 423, dont **329 des 353 numérotées** et 6
-  exclusifs (`LE 8`, `MR-HAM`, `MR-VER`, `MR-STE`, `MR-HAK`, `MR-MSC`).
-- 60 photos personnelles converties depuis HEIC et déployées (ratio portrait
-  **et** paysage — certaines séries sont horizontales).
+- **Objectif complet : les 353 cartes numérotées ont un visuel.** 381 cartes
+  sur 423 en compte.
+- Trois sources : PriceCharting (240 px), eBay (1600 px), et les photos
+  personnelles importées par `tools/import_photos.py` — 108 photos, dont
+  des HEIC convertis.
+- 28 exclusifs avec visuel : `GU 1` à `GU 11`, `SUN 1` à `SUN 11`,
+  `LE 8`, et cinq reliques `MR-*`.
+- **42 exclusifs restent sans image** : les 18 `LE`, les 10 `MR`, les
+  10 `RR`, les 2 `GG`, les 2 `BG`.
 
 ---
 
@@ -124,13 +130,18 @@ tourne encore sur l'ancienne version mono-utilisateur. Au premier
 redémarrage, les quantités existantes seront portées par un compte
 technique, puis récupérées par la première personne qui se connecte.
 
-### 24 numérotées sans visuel
-Presque toutes dans les séries rares que les vendeurs photographient le
-moins : **F1 Gold (343-353)** et **Turbo Chrome (316-340)**.
-→ `tools/ebay_harvest.py` avec d'autres requêtes, ou les photos perso.
+### 24 numérotées sans visuel — **résolu**
+Les 24 manquantes (F1 Gold, Turbo Chrome, fin de série) sont arrivées en
+photos personnelles le 14 octobre. Il n'en reste plus.
 
 ### `RR.jpg` toujours non déployé
 Le nom est ambigu : il existe 10 cartes `RR-*`. Il faut savoir laquelle.
+`tools/import_photos.py` le refuse volontairement plutôt que de deviner.
+
+### Deux photos au format atypique
+`347.jpg` (1354×839) et `352.jpg` (1229×809) sont plus larges que le
+format paysage attendu. Déployées quand même, mais **je ne lis pas les
+images** : à vérifier d'un œil, elles peuvent montrer plusieurs cartes.
 
 ### Les images eBay sont lourdes
 Jusqu'à 517 Ko pièce, ~95 Mo au total. Le panneau d'aperçu charge l'image

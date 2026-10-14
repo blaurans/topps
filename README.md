@@ -220,8 +220,38 @@ en texte. Les fichiers sont nommés d'après le code de la carte, avec
 espaces et barres remplacés par des tirets : `GU 1` → `GU-1.jpg`,
 `MR-NOR` → `MR-NOR.jpg`.
 
-Deux sources automatisées, toutes deux sans OCR — l'identification se fait
-par le titre ou le lien, jamais en lisant un pixel.
+Trois sources, toutes deux sans OCR côté import automatisé — l'identification
+se fait par le nom du fichier, le titre ou le lien, jamais en lisant un
+pixel.
+
+### Depuis ses propres photos
+
+Le source le plus simple, et le meilleur rendu. Les photos sont nommées
+d'après le numéro, l'import les confronte au catalogue et n'accepte que
+ce qui existe vraiment :
+
+```sh
+python3 tools/import_photos.py ~/Documents/turbo-attax --stage /tmp/photos
+```
+
+| Fichier | Carte | Nom attendu |
+|---|---|---|
+| `301.jpg` | `301` | `301.jpg` |
+| `GU1.jpg` | `GU 1` | `GU-1.jpg` |
+| `SUN11.jpg` | `SUN 11` | `SUN-11.jpg` |
+| `MR-HAM.jpg` | `MR-HAM` | `MR-HAM.jpg` |
+
+Les HEIC d'iPhone sont convertis au passage. Deux formats sont acceptés,
+car **certaines séries sont horizontales** : `63×88` et son inverse.
+
+Trois refus, volontairement stricts — deviner serait pire que de ne rien
+faire :
+
+- un nom hors catalogue (`3470.jpg`) est ignoré ;
+- un nom trop vague (`RR.jpg`) est signalé sans être deviné, car il existe
+  dix cartes `RR-*` ;
+- un format atypique est signalé sans bloquer, pour que le cas soit
+  visible.
 
 ### Depuis le checklist en ligne (PriceCharting)
 
@@ -259,7 +289,9 @@ annonces qui ne correspondent à rien sont ignorées plutôt que de risquer
 de ranger une image sous le mauvais numéro.
 
 Les images récupérées remplacent les basse résolution quand elles se
-recouvrent. 315 visuels sont présents au total, dont 310 des 353 numérotées.
+recouvrent. **Les 353 cartes numérotées ont un visuel**, et 381 cartes sur
+423 en compte. Les 42 exclusifs restants (les 18 `LE`, les 10 `MR`, les
+10 `RR`, les 2 `GG`, les 2 `BG`) n'ont pas d'image.
 
 ### Ajouter des images à la main
 
