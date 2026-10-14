@@ -290,8 +290,8 @@ de ranger une image sous le mauvais numéro.
 
 Les images récupérées remplacent les basse résolution quand elles se
 recouvrent. **Les 353 cartes numérotées ont un visuel**, et 381 cartes sur
-423 en compte. Restent 42 exclusifs : les 17 `LE`, les 10 `RR`, les 8 `GG`,
-les 5 `MR` et les 2 `BG`.
+423 en compte. Restent 30 exclusifs : les 13 `LE`, les 10 `RR`, les 4 `GG`,
+les 2 `MR` et `BG 1`.
 
 Pour savoir ce qui manque, à tout moment :
 

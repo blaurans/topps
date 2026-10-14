@@ -96,16 +96,22 @@
   `state`, un `nonce` et un `code_challenge` S256.
 
 ### Visuels
-- **Objectif complet : les 353 cartes numérotées ont un visuel.** 381 cartes
+- **Objectif complet : les 353 cartes numérotées ont un visuel.** 393 cartes
   sur 423 en compte.
 - Trois sources : PriceCharting (240 px), eBay (1600 px), et les photos
   personnelles importées par `tools/import_photos.py` — 108 photos, dont
   des HEIC convertis.
-- 28 exclusifs avec visuel : `GU 1` à `GU 11`, `SUN 1` à `SUN 11`,
-  `LE 8`, et cinq reliques `MR-*`.
-- **42 exclusifs restent sans image** : les 17 `LE` (sur 18), les 10 `RR`,
-  les 8 `GG`, les 5 `MR` (sur 10), les 2 `BG`.
+- 40 exclusifs avec visuel : les 11 `GU`, les 11 `SUN`, `GG 4` à `GG 7`,
+  les 5 `LE` trouvés (`LE 5`, `LE 6`, `LE 7`, `LE 8`, `LE 12`), 7 `MR`
+  et 2 `BG`.
+- **30 exclusifs restent sans image** : les 13 `LE`, les 10 `RR`, les 4 `GG`
+  (`GG 1` à `GG 3` et `GG 8` — les quatre pilotes sur la piste), `MR-ALO`
+  et `MR-RAI`, et `BG 1`.
+  Deux passes eBay ont récupéré 12 exclusifs ; les `RR` ne se trouvent
+  quasiment pas en vente à l'unité sur eBay.
 - `tools/etat_visuels.py` liste ce qui manque, famille par famille.
+- `tools/test_reconnaissance.py` (21 cas) verrouille l'identification des
+  annonces : un motif faux rangerait une image sous la mauvaise carte.
 
 ---
 
