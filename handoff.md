@@ -103,8 +103,9 @@
   des HEIC convertis.
 - 28 exclusifs avec visuel : `GU 1` à `GU 11`, `SUN 1` à `SUN 11`,
   `LE 8`, et cinq reliques `MR-*`.
-- **42 exclusifs restent sans image** : les 18 `LE`, les 10 `MR`, les
-  10 `RR`, les 2 `GG`, les 2 `BG`.
+- **42 exclusifs restent sans image** : les 17 `LE` (sur 18), les 10 `RR`,
+  les 8 `GG`, les 5 `MR` (sur 10), les 2 `BG`.
+- `tools/etat_visuels.py` liste ce qui manque, famille par famille.
 
 ---
 
@@ -138,10 +139,10 @@ photos personnelles le 14 octobre. Il n'en reste plus.
 Le nom est ambigu : il existe 10 cartes `RR-*`. Il faut savoir laquelle.
 `tools/import_photos.py` le refuse volontairement plutôt que de deviner.
 
-### Deux photos au format atypique
+### Deux photos au format atypique — conservées
 `347.jpg` (1354×839) et `352.jpg` (1229×809) sont plus larges que le
-format paysage attendu. Déployées quand même, mais **je ne lis pas les
-images** : à vérifier d'un œil, elles peuvent montrer plusieurs cartes.
+format paysage attendu. Déployées, et **gardées telles quelles** : la photo
+est mal prise mais elle est la bonne carte, ce qui vaut mieux qu'un trou.
 
 ### Les images eBay sont lourdes
 Jusqu'à 517 Ko pièce, ~95 Mo au total. Le panneau d'aperçu charge l'image

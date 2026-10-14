@@ -290,8 +290,15 @@ de ranger une image sous le mauvais numéro.
 
 Les images récupérées remplacent les basse résolution quand elles se
 recouvrent. **Les 353 cartes numérotées ont un visuel**, et 381 cartes sur
-423 en compte. Les 42 exclusifs restants (les 18 `LE`, les 10 `MR`, les
-10 `RR`, les 2 `GG`, les 2 `BG`) n'ont pas d'image.
+423 en compte. Restent 42 exclusifs : les 17 `LE`, les 10 `RR`, les 8 `GG`,
+les 5 `MR` et les 2 `BG`.
+
+Pour savoir ce qui manque, à tout moment :
+
+```sh
+python3 tools/etat_visuels.py /app/topps/data/thumbnails
+python3 tools/etat_visuels.py <dossier> --famille GG   # une famille à la fois
+```
 
 ### Ajouter des images à la main
 
