@@ -84,7 +84,15 @@
 
 ### Déploiement
 - Conteneur **healthy**, 335 visuels indexés.
-- Vhost Caddy validé puis rechargé ; certificat Let's Encrypt actif.
+- Identifiants Google en place dans `/app/topps/.env` (mode `600`, hors du
+  dépôt — vérifié par `git check-ignore`).
+- **mTLS retiré** du vhost `topps.laurans.org`. Sauvegarde du Caddyfile :
+  `.bak.20261014-183924`. Les deux autres vhosts mTLS (`bastion`,
+  `charge`) sont intacts — vérifié : `bastion` répond toujours
+  `tlsv13 alert certificate required` sans certificat.
+- Flux OAuth vérifié de l'extérieur : `/auth/google` renvoie vers
+  `accounts.google.com` avec le bon `client_id`, l'URI de redirection, un
+  `state`, un `nonce` et un `code_challenge` S256.
 
 ### Visuels
 - **335 cartes avec visuel** sur 423, dont **329 des 353 numérotées** et 6
@@ -160,19 +168,19 @@ D'où l'absence de `apk add` dans l'image finale.
 
 ## 6. Prochaine action
 
-1. **Créer l'ID client OAuth** dans la Google Cloud Console (voir
-   `.env.example` pour les deux URI exactes). C'est le seul élément bloquant.
-2. Me donner le **client ID** et le **client secret**.
-3. Je renseigne `/app/topps/.env` sur ociub et je déploie. Le site est
-   encore protégé par le mTLS à ce moment-là.
-4. Se connecter une fois : c'est ce qui déclenche la reprise des anciennes
-   quantités.
-5. **Ensuite seulement**, retirer le `client_auth` du vhost Caddy.
+1. **Se connecter une fois sur `https://topps.laurans.org`** — c'est ce qui
+   transfère les **17 quantités** actuellement portées par le compte
+   technique vers ton compte. Tant que ce n'est pas fait, elles restent
+   invisibles de l'interface (elles ne sont pas perdues).
+2. Vérifier l'alignement des visuels sur un échantillon (la seule chose que
+   je ne peux pas faire).
+3. Compléter les 24 trous avec `tools/ebay_harvest.py` et des requêtes ciblées.
+4. Trancher le sort de `RR.jpg`, toujours non déployé.
 
-À noter : l'écran de consentement Google affichera un avertissement
+À noter : l'écran de consentement Google affiche un avertissement
 « application non vérifiée » tant que l'application est en mode Test. C'est
-normal pour un usage privé ; les comptes doivent être ajoutés aux
-utilisateurs de test. Passer en mode Production supprime l'avertissement.
+normal pour un usage privé ; passer l'application en mode Production
+supprime l'avertissement.
 
 ---
 
