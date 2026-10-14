@@ -26,9 +26,17 @@ import time
 import urllib.error
 import urllib.request
 
-# Format portrait d'une carte Topps : 63 x 88 points.
-CARD_RATIO = 63 / 88
-TOLERANCE = 0.075
+# Les cartes Topps existent en portrait (63x88) et en paysage (88x63) :
+# certaines series sont horizontales. On accepte les deux orientations, en
+# ecartant seulement les panorames extremes qui ne sont pas des cartes.
+RATIO_PORTRAIT = 63 / 88
+RATIO_PAYSAGE = 88 / 63
+TOLERANCE = 0.10
+
+
+def est_carte(r: float) -> bool:
+    """Vrai si le ratio correspond a une carte, dans l'un ou l'autre sens."""
+    return (abs(r - RATIO_PORTRAIT) < TOLERANCE or abs(r - RATIO_PAYSAGE) < TOLERANCE)
 EBAY_REF = "https://www.ebay.com/"
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
 
@@ -296,7 +304,7 @@ def main():
                 print(f"  {code}: echec reseau")
                 continue
             r = ratio(data)
-            if not (r and abs(r - CARD_RATIO) < TOLERANCE):
+            if not (r and est_carte(r)):
                 ignorees += 1
                 continue
             dest = sortie / f"{code}.jpg"
