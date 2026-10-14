@@ -7,7 +7,10 @@ import (
 	"testing"
 )
 
-func testStore(t *testing.T) *Store {
+// testStore ouvre une base neuve, la peuple, et crée un utilisateur : les
+// quantités étant désormais personnelles, tout test qui écrit doit passer
+// par un user_id.
+func testStore(t *testing.T) (*Store, int64) {
 	t.Helper()
 	dir := t.TempDir()
 	s, err := Open(filepath.Join(dir, "topps.db"))
@@ -18,12 +21,16 @@ func testStore(t *testing.T) *Store {
 	if err := s.Seed(); err != nil {
 		t.Fatalf("Seed: %v", err)
 	}
-	return s
+	u, err := s.UpsertGoogleUser("sub-test", "test@b.fr", "Test", "")
+	if err != nil {
+		t.Fatalf("utilisateur: %v", err)
+	}
+	return s, u.ID
 }
 
-func testCatalogue(t *testing.T, s *Store) *Catalogue {
+func testCatalogue(t *testing.T, s *Store, uid int64) *Catalogue {
 	t.Helper()
-	cat, err := s.Catalogue("turbo-attax-f1-2026", nil)
+	cat, err := s.Catalogue(uid, "turbo-attax-f1-2026", nil)
 	if err != nil {
 		t.Fatalf("Catalogue: %v", err)
 	}
@@ -33,7 +40,8 @@ func testCatalogue(t *testing.T, s *Store) *Catalogue {
 // TestSeedIntegrity verrouille ce qui vient du checklist officiel Topps.
 // Si la régénération du seed casse la numérotation, c'est ici que ça hurle.
 func TestSeedIntegrity(t *testing.T) {
-	cat := testCatalogue(t, testStore(t))
+	s0, uid0 := testStore(t)
+	cat := testCatalogue(t, s0, uid0)
 
 	if got, want := len(cat.Cards), 423; got != want {
 		t.Errorf("cartes = %d, want %d", got, want)
@@ -86,14 +94,14 @@ func TestSeedIntegrity(t *testing.T) {
 // TestSeedIdempotent : relancer le seed sur une base peuplée ne doit
 // toucher à rien, sinon les quantités partent à zéro au redémarrage.
 func TestSeedIdempotent(t *testing.T) {
-	s := testStore(t)
-	if err := s.SetQty("316", "base", 3); err != nil {
+	s, uid := testStore(t)
+	if err := s.SetQty(uid, "316", "base", 3); err != nil {
 		t.Fatal(err)
 	}
 	if err := s.Seed(); err != nil {
 		t.Fatalf("second Seed: %v", err)
 	}
-	cat := testCatalogue(t, s)
+	cat := testCatalogue(t, s, uid)
 	if len(cat.Cards) != 423 {
 		t.Errorf("cartes = %d après re-seed, want 423", len(cat.Cards))
 	}
@@ -109,15 +117,15 @@ func TestSeedIdempotent(t *testing.T) {
 }
 
 func TestSetQty(t *testing.T) {
-	s := testStore(t)
+	s, uid := testStore(t)
 
-	if err := s.SetQty("316", "base", 2); err != nil {
+	if err := s.SetQty(uid, "316", "base", 2); err != nil {
 		t.Fatal(err)
 	}
-	if err := s.SetQty("316", "gold", 1); err != nil {
+	if err := s.SetQty(uid, "316", "gold", 1); err != nil {
 		t.Fatal(err)
 	}
-	cat := testCatalogue(t, s)
+	cat := testCatalogue(t, s, uid)
 	var found bool
 	for _, c := range cat.Cards {
 		if c.Code != "316" {
@@ -137,10 +145,10 @@ func TestSetQty(t *testing.T) {
 
 	// Une valeur négative est ramenée à zéro, pas rejetée : le client peut
 	// envoyer n'importe quel delta.
-	if err := s.SetQty("316", "base", -7); err != nil {
+	if err := s.SetQty(uid, "316", "base", -7); err != nil {
 		t.Fatal(err)
 	}
-	cat = testCatalogue(t, s)
+	cat = testCatalogue(t, s, uid)
 	for _, c := range cat.Cards {
 		if c.Code == "316" && c.Qty["base"] != 0 {
 			t.Errorf("base = %d après qty négative, want 0", c.Qty["base"])
@@ -148,13 +156,13 @@ func TestSetQty(t *testing.T) {
 	}
 
 	// La mise à jour est absolue, pas incrémentale.
-	if err := s.SetQty("316", "base", 5); err != nil {
+	if err := s.SetQty(uid, "316", "base", 5); err != nil {
 		t.Fatal(err)
 	}
-	if err := s.SetQty("316", "base", 1); err != nil {
+	if err := s.SetQty(uid, "316", "base", 1); err != nil {
 		t.Fatal(err)
 	}
-	cat = testCatalogue(t, s)
+	cat = testCatalogue(t, s, uid)
 	for _, c := range cat.Cards {
 		if c.Code == "316" && c.Qty["base"] != 1 {
 			t.Errorf("base = %d, want 1 (écriture absolue)", c.Qty["base"])
@@ -163,17 +171,17 @@ func TestSetQty(t *testing.T) {
 }
 
 func TestSetQtyRejectsImpossible(t *testing.T) {
-	s := testStore(t)
+	s, uid := testStore(t)
 
-	if err := s.SetQty("9999", "base", 1); err == nil {
+	if err := s.SetQty(uid, "9999", "base", 1); err == nil {
 		t.Error("carte inexistante acceptée")
 	}
 	// La carte 1 n'a que la rareté « base » : un Green Refractor y est
 	// refusé même si la rareté existe pour d'autres cartes.
-	if err := s.SetQty("1", "green", 1); err == nil {
+	if err := s.SetQty(uid, "1", "green", 1); err == nil {
 		t.Error("rareté non allouée à la carte acceptée")
 	}
-	if err := s.SetQty("1", "nimporte", 1); err == nil {
+	if err := s.SetQty(uid, "1", "nimporte", 1); err == nil {
 		t.Error("rareté inconnue acceptée")
 	}
 }
@@ -207,15 +215,15 @@ func TestThumbKeyCannotEscape(t *testing.T) {
 }
 
 func TestCatalogueUnknownSet(t *testing.T) {
-	s := testStore(t)
-	if _, err := s.Catalogue("inexistant", nil); err == nil {
+	s, uid := testStore(t)
+	if _, err := s.Catalogue(uid, "inexistant", nil); err == nil {
 		t.Error("set inconnu accepté")
 	}
 }
 
 func TestBackup(t *testing.T) {
-	s := testStore(t)
-	if err := s.SetQty("1", "base", 1); err != nil {
+	s, uid := testStore(t)
+	if err := s.SetQty(uid, "1", "base", 1); err != nil {
 		t.Fatal(err)
 	}
 	dest := filepath.Join(t.TempDir(), "sauvegarde", "topps.db")
@@ -231,7 +239,7 @@ func TestBackup(t *testing.T) {
 		t.Fatalf("ouverture de la sauvegarde : %v", err)
 	}
 	defer b.Close()
-	cat := testCatalogue(t, b)
+	cat := testCatalogue(t, b, uid)
 	for _, c := range cat.Cards {
 		if c.Code == "1" && c.Qty["base"] != 1 {
 			t.Errorf("sauvegarde : quantité de la carte 1 = %d, want 1", c.Qty["base"])

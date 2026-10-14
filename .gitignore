@@ -17,3 +17,9 @@
 # Python
 __pycache__/
 *.pyc
+
+# Binaire compilé
+/topps
+
+# Identifiants Google : le client ID et le secret ne sont jamais versionnés.
+/.env

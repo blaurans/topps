@@ -4,6 +4,9 @@
 // est embarqué (seed/*.json) ; les visuels, eux, sont facultatifs et
 // lus dans un dossier au démarrage.
 //
+// Chaque personne arrive par l'authentification Google et ne voit que ses
+// propres quantités : le catalogue est commun, lesinventaires ne le sont pas.
+//
 //	topps -addr :8080 -db ./data/topps.db -thumbs ./data/thumbnails
 package main
 
@@ -25,6 +28,17 @@ import (
 
 //go:embed web
 var webFS embed.FS
+
+// App tient ce dont les handlers ont besoin. Tout passe par elle plutôt
+// que par des variables globales : les tests peuvent donc monter un serveur
+// complet sans toucher au processus.
+type App struct {
+	store *Store
+	th    *thumbs
+	auth  *AuthConfig
+	slug  string
+	sub   fs.FS
+}
 
 // thumbs est l'index des visuels présents sur le disque, lu une fois au
 // démarrage puis figé (aucune écriture ensuite).
@@ -90,57 +104,39 @@ func main() {
 		log.Fatalf("seed: %v", err)
 	}
 
-	th := newThumbs(*thumbsDir)
-
 	sub, err := fs.Sub(webFS, "web")
 	if err != nil {
 		log.Fatalf("assets: %v", err)
 	}
 
-	mux := http.NewServeMux()
-	mux.HandleFunc("GET /api/catalogue", func(w http.ResponseWriter, r *http.Request) {
-		cat, err := store.Catalogue(*slug, th.has)
-		if err != nil {
-			httpError(w, http.StatusInternalServerError, err)
-			return
+	app := &App{
+		store: store,
+		th:    newThumbs(*thumbsDir),
+		slug:  *slug,
+		sub:   sub,
+		auth: &AuthConfig{
+			ClientID:      os.Getenv("TOPPS_GOOGLE_CLIENT_ID"),
+			ClientSecret:  os.Getenv("TOPPS_GOOGLE_CLIENT_SECRET"),
+			BaseURL:       os.Getenv("TOPPS_BASE_URL"),
+			AllowedEmails: ParseAllowedEmails(os.Getenv("TOPPS_ALLOWED_EMAILS")),
+		},
+	}
+	if !app.auth.Configured() {
+		log.Printf("ATTENTION : authentification Google non configurée " +
+			"(TOPPS_GOOGLE_CLIENT_ID, TOPPS_GOOGLE_CLIENT_SECRET, TOPPS_BASE_URL) ; " +
+			"le site affiche une page d'explication et personne ne peut entrer")
+	} else {
+		log.Printf("connexion Google : %s", app.auth.RedirectURL())
+		if len(app.auth.AllowedEmails) == 0 {
+			log.Printf("aucune liste blanche : tout compte Google peut créer une collection")
+		} else {
+			log.Printf("liste blanche : %d adresse(s) autorisée(s)", len(app.auth.AllowedEmails))
 		}
-		writeJSON(w, cat)
-	})
-	mux.HandleFunc("PUT /api/holding", func(w http.ResponseWriter, r *http.Request) {
-		var body struct {
-			Card   string `json:"card"`
-			Rarity string `json:"rarity"`
-			Qty    int    `json:"qty"`
-		}
-		if err := decodeJSON(r, &body); err != nil {
-			httpError(w, http.StatusBadRequest, err)
-			return
-		}
-		if body.Card == "" || body.Rarity == "" {
-			httpError(w, http.StatusBadRequest, errors.New("card et rarity sont obligatoires"))
-			return
-		}
-		if err := store.SetQty(body.Card, body.Rarity, body.Qty); err != nil {
-			httpError(w, http.StatusBadRequest, err)
-			return
-		}
-		writeJSON(w, map[string]any{"card": body.Card, "rarity": body.Rarity, "qty": max(body.Qty, 0)})
-	})
-	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServerFS(sub)))
-	mux.HandleFunc("GET /thumb/{code}", func(w http.ResponseWriter, r *http.Request) {
-		serveThumb(w, r, *thumbsDir)
-	})
-	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path != "/" {
-			http.NotFound(w, r)
-			return
-		}
-		serveIndex(w, sub)
-	})
+	}
 
 	srv := &http.Server{
 		Addr:              *addr,
-		Handler:           mux,
+		Handler:           app.routes(),
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 
@@ -163,6 +159,84 @@ func main() {
 	log.Print("arrêt propre")
 }
 
+// staticSub expose les fichiers de web/ au Fileserver.Isolated pour les tests.
+func staticSub() (fs.FS, error) { return fs.Sub(webFS, "web") }
+
+// routes assemble le serveur : quelques pages publiques, tout le reste
+// derrière une session.
+func (a *App) routes() http.Handler {
+	// Ce qui exige une session.
+	private := http.NewServeMux()
+	private.HandleFunc("GET /api/catalogue", func(w http.ResponseWriter, r *http.Request) {
+		cat, err := a.store.Catalogue(userFrom(r).ID, a.slug, a.th.has)
+		if err != nil {
+			httpError(w, http.StatusInternalServerError, err)
+			return
+		}
+		writeJSON(w, cat)
+	})
+	private.HandleFunc("PUT /api/holding", func(w http.ResponseWriter, r *http.Request) {
+		var body struct {
+			Card   string `json:"card"`
+			Rarity string `json:"rarity"`
+			Qty    int    `json:"qty"`
+		}
+		if err := decodeJSON(r, &body); err != nil {
+			httpError(w, http.StatusBadRequest, err)
+			return
+		}
+		if body.Card == "" || body.Rarity == "" {
+			httpError(w, http.StatusBadRequest, errors.New("card et rarity sont obligatoires"))
+			return
+		}
+		if err := a.store.SetQty(userFrom(r).ID, body.Card, body.Rarity, body.Qty); err != nil {
+			httpError(w, http.StatusBadRequest, err)
+			return
+		}
+		writeJSON(w, map[string]any{"card": body.Card, "rarity": body.Rarity, "qty": max(body.Qty, 0)})
+	})
+	private.HandleFunc("GET /api/me", a.handleMe)
+	private.HandleFunc("GET /thumb/{code}", func(w http.ResponseWriter, r *http.Request) {
+		serveThumb(w, r, a.th.dir)
+	})
+	private.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		serveIndex(w, a.sub)
+	})
+
+	mux := http.NewServeMux()
+	mux.HandleFunc("GET /healthz", handleHealthz)
+	// La feuille de style est publique : la page de connexion s'affiche
+	// avant toute session. Elle ne contient aucune donnée.
+	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServerFS(a.sub)))
+	mux.HandleFunc("GET /login", a.handleLoginPage)
+	mux.HandleFunc("GET /auth/google", a.handleLoginStart)
+	mux.HandleFunc("GET /auth/callback", a.handleCallback)
+	mux.HandleFunc("GET /logout", a.handleLogout)
+	mux.Handle("/", requireSession(a.store, private))
+
+	return securityHeaders(mux)
+}
+
+// securityHeaders pose les en-têtes qui évitent qu'un site tiers embarque
+// le nôtre dans un iframe, et qu'une réponse privée atterrisse dans un
+// cache partagé.
+func securityHeaders(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		h := w.Header()
+		h.Set("X-Content-Type-Options", "nosniff")
+		h.Set("Referrer-Policy", "no-referrer")
+		h.Set("X-Frame-Options", "DENY")
+		if strings.HasPrefix(r.URL.Path, "/api/") || r.URL.Path == "/" {
+			h.Set("Cache-Control", "private, no-store")
+		}
+		next.ServeHTTP(w, r)
+	})
+}
+
 func serveIndex(w http.ResponseWriter, sub fs.FS) {
 	b, err := fs.ReadFile(sub, "index.html")
 	if err != nil {
@@ -170,7 +244,7 @@ func serveIndex(w http.ResponseWriter, sub fs.FS) {
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Header().Set("Cache-Control", "no-cache")
+	w.Header().Set("Cache-Control", "no-store")
 	_, _ = w.Write(b)
 }
 
@@ -184,6 +258,6 @@ func serveThumb(w http.ResponseWriter, r *http.Request, dir string) {
 		http.NotFound(w, r)
 		return
 	}
-	w.Header().Set("Cache-Control", "public, max-age=86400")
+	w.Header().Set("Cache-Control", "private, max-age=86400")
 	http.ServeFile(w, r, filepath.Join(dir, name))
 }

@@ -125,6 +125,53 @@ button.ghost {
 }
 button.ghost:hover { color: var(--fg); border-color: var(--fg-faint); }
 
+/* ---------- identité ---------- */
+
+/* Le même aspect que button.ghost, pour le lien de déconnexion. */
+.identity { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.identity a.ghost {
+  display: inline-flex; align-items: center;
+  font: inherit; font-size: 12px; text-decoration: none;
+  color: var(--fg-dim); background: transparent;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  height: 32px; padding: 0 10px;
+}
+.identity a.ghost:hover { color: var(--fg); border-color: var(--fg-faint); }
+.me-pic { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+.me-name {
+  max-width: 22ch; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; font-size: 12px; color: var(--fg-dim);
+}
+
+/* ---------- page de connexion ---------- */
+
+.login-page {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 24px;
+}
+.login-box {
+  width: 100%; max-width: 360px; text-align: center;
+  padding: 32px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--line); border-radius: 10px;
+}
+.login-box h1 { margin: 0; font-size: 20px; }
+.login-sub { margin: 4px 0 24px; color: var(--fg-faint); font-size: 12px; }
+.login-error {
+  margin: 0 0 20px; padding: 10px 12px;
+  background: color-mix(in srgb, var(--dup) 12%, transparent);
+  border: 1px solid var(--dup); border-radius: var(--radius);
+  font-size: 12px; color: var(--fg); text-align: left;
+}
+.login-note { margin: 14px 0 0; color: var(--fg-faint); font-size: 11px; }
+.google-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 10px 14px; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--bg-alt);
+  color: var(--fg); font-size: 14px; text-decoration: none;
+}
+.google-btn:hover { border-color: var(--fg-faint); background: var(--bg-card-hover); }
+
 /* ---------- état ---------- */
 
 .status {

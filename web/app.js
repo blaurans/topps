@@ -35,6 +35,26 @@ const norm = (s) =>
 		.replace(/[\u0300-\u036f]/g, '')
 		.toLowerCase()
 		.trim();
+
+/* ---------- session ---------- */
+
+// Une session peut expirer en cours de saisie (le cookie a trente jours,
+// mais une session fermée dans un autre onglet suffit à invalider la
+// suivante). Plutôt que d'afficher une erreur opaque, on renvoie vers la
+// page de connexion.
+function goToLogin() {
+	window.location.href = '/login';
+}
+
+async function fetchJSON(url, options) {
+	const res = await fetch(url, options);
+	if (res.status === 401) {
+		goToLogin();
+		throw new Error('session expirée');
+	}
+	if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || res.statusText);
+	return res.json();
+}
 /* ---------- modèle ---------- */
 
 const baseQty = (c) => c.qty.base || 0;
@@ -209,12 +229,11 @@ async function setQty(card, rarity, qty) {
 	sync(card);
 
 	try {
-		const res = await fetch('/api/holding', {
+		await fetchJSON('/api/holding', {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ card: card.code, rarity, qty }),
 		});
-		if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || res.statusText);
 		sync(card);
 	} catch (err) {
 		card.qty[rarity] = before;
@@ -424,14 +443,35 @@ function bindFilter(id, key, after) {
 	});
 }
 
+// renderMe pose l'identité en haut de page. Sans elle, deux personnes
+// partageant le même écran ne peuvent pas savoir à qui appartient ce qu
+// elles voient.
+function renderMe(me) {
+	const label = me.name || me.email;
+	$('#me-name').textContent = label;
+	$('#me-name').title = me.email;
+	if (me.picture) {
+		const pic = $('#me-pic');
+		pic.src = me.picture;
+		pic.alt = '';
+		pic.hidden = false;
+	}
+}
+
 async function boot() {
-	const res = await fetch('/api/catalogue');
-	if (!res.ok) {
-		$('#status').textContent = `Impossible de charger le catalogue (${res.status})`;
-		$('#status').classList.add('error');
+	let me;
+	let data;
+	try {
+		me = await fetchJSON('/api/me');
+		data = await fetchJSON('/api/catalogue');
+	} catch (err) {
+		if (err.message !== 'session expirée') {
+			$('#status').textContent = `Impossible de charger le catalogue (${err.message})`;
+			$('#status').classList.add('error');
+		}
 		return;
 	}
-	const data = await res.json();
+	renderMe(me);
 
 	state.set = data.set;
 	state.rarities = data.rarities;

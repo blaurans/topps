@@ -20,9 +20,11 @@
 | Périmètre | multi-sets dès le départ (table `sets`) |
 | Historique | aucun — pas de dates, pas de prix, pas de sessions de booster |
 | Stack | Go + SQLite (`modernc.org/sqlite`, Go pur, CGO désactivé), un binaire statique |
-| Interface | grille texte + visuels, pas de framework JS |
-| Exposition | `ociub.laurans.org`, vhost `topps.laurans.org` en **mTLS strict** |
-| Déploiement | `ssh ociub` → `git pull` → `docker compose up -d --build` |
+| **Comptes** | **authentification Google**, multi-utilisateur |
+| **Données** | **une collection par compte** — le catalogue est commun, les quantités sont personnelles |
+| **Barrière d'accès** | **plus de mTLS** : c'est Google qui filtre, Caddy ne fait plus que le TLS |
+| **Liste blanche** | **aucune pour l'instant** : tout compte Google peut créer une collection |
+| Bibliothèque OAuth | **aucune** : `auth.go` écrit le flux et la vérification de jeton à la main |
 | Repo | **public** — le code et le catalogue sont visibles, la collection ne l'est jamais |
 | Sauvegarde | `backup.sh` via `VACUUM INTO`, quotidienne à 4h17, rétention 30 jours |
 
@@ -35,27 +37,32 @@
 | Fichier | Rôle |
 |---|---|
 | `main.go` | point d'entrée, routes, cycle de vie du serveur |
+| `auth.go` | OAuth Google : PKCE, échange du code, **vérification du jeton**, cache des clés |
+| `session.go` | page de connexion, callback, sessions, middleware d'accès |
+| `users.go` | comptes, sessions en base, reprise des quantités existantes |
 | `store.go` | SQLite : ouverture, migration, seed, requêtes, `SetQty`, `Backup` |
 | `api.go` | helpers HTTP (`writeJSON`, `decodeJSON`, `httpError`) |
-| `schema.sql` | 5 tables : `sets`, `cards`, `rarities`, `card_rarities`, `holdings` |
+| `schema.sql` | tables `users`, `sessions`, `auth_pending`, `sets`, `cards`, `rarities`, `card_rarities`, `holdings` |
 | `seed/turbo-attax-f1-2026.json` | le catalogue, 423 cartes, généré par `tools/parse_checklist.py` |
 | `seed/images.json` | correspondance numéro → fichier image PriceCharting (144 entrées) |
 | `web/index.html`, `web/app.js`, `web/style.css` | l'interface, sans étape de build |
 | `tools/parse_checklist.py` | régénère le seed depuis le PDF officiel |
 | `tools/fetch_images.py` | récupère les visuels PriceCharting depuis une page enregistrée |
 | `tools/ebay_harvest.py` | récupère les visuels eBay en 1600 px, dans un navigateur réel |
+| `.env.example` | **modèle** des identifiants Google — le vrai `.env` est sur le serveur, jamais versionné |
 | `backup.sh` | copie cohérente de la base à chaud |
 | `Dockerfile`, `docker-compose.yml` | image et stack |
-| `store_test.go` | 9 tests : intégrité du seed, idempotence, bornes, refus, sauvegarde |
+| `store_test.go`, `auth_test.go` | **29 tests** |
 
 ### Hors dépôt
 
 | Chemin | Rôle |
 |---|---|
-| `~/Documents/turbo-attax/` | le PDF officiel Topps + les pages enregistrées (sources du seed et des visuels) |
-| `~/.pki/bastion.laurans.org/` | PKI mTLS — le certificat client `msa1` (valide jusqu'en 2028) permet d'ouvrir le site |
+| `~/Documents/turbo-attax/` | le PDF officiel Topps + les pages enregistrées + **les photos de cartes** |
+| `~/.pki/bastion.laurans.org/` | PKI mTLS — **n'est plus nécessaire pour ce site**, garde pour les autres |
+| `/app/topps/.env` sur ociub | **client ID + secret Google**, `chmod 600`, hors du dépôt |
 | `/app/topps/` sur ociub | le déploiement : code, `data/`, `backups/` |
-| `/app/guacamole/Caddyfile` sur ociub | le vhost `topps.laurans.org` (sauvegarde `.bak.20261013-171815`) |
+| `/app/guacamole/Caddyfile` sur ociub | le vhost `topps.laurans.org` |
 
 ---
 
@@ -63,42 +70,68 @@
 
 ### Application
 - Binaire Go statique (~17 Mo), un conteneur, aucun service externe.
-- **9 tests Go verts** : numérotation continue 1→353, seed idempotent (un redémarrage n'écrase pas les quantités), quantités bornées à 0, refus d'une rareté non allouée à une carte, sauvegarde relisible, `thumbKey` incapable de sortir du dossier.
-- **Rendu réel en Chromium headless** : 423 cartes, compteurs exacts, zéro erreur console.
-- **Parcours complet piloté par Chrome** : filtres, mode Manquantes, bascules, `n`, `Échap`, panneau d'aperçu.
+- **29 tests Go verts** : intégrité du seed, idempotence, bornes, refus,
+  sauvegarde, **plus** 20 tests d'authentification — dont la vérification de
+  jeton contre une clé RSA fabriquée (signature falsifiée, `alg` en
+  `HS256`/`none`, clé inconnue, autre application, audience multiple sans
+  `azp`, issuer inconnu, jeton expiré, e-mail non vérifié, mauvais nonce),
+  l'isolation entre deux comptes, la reprise des quantités, et le fait que
+  le jeton de session n'est jamais stocké en clair.
+- **Rendu réel en Chromium** piloté en CDP : page de connexion, redirection
+  de la racine sans session, 423 cartes affichées, identité en en-tête,
+  clics qui persistent après rechargement, déconnexion. **Zéro erreur
+  console.**
 
 ### Déploiement
-- Conteneur **healthy** depuis 11 h, 315 visuels indexés.
-- Vhost Caddy validé puis rechargé ; certificat Let's Encrypt émis (valide jusqu'au 11 janvier 2027).
-- **mTLS vérifié de l'extérieur** : sans certificat client, TLS répond `certificate required`.
-- Sauvegarde quotidienne installée et une première copie effectuée.
+- Conteneur **healthy**, 335 visuels indexés.
+- Vhost Caddy validé puis rechargé ; certificat Let's Encrypt actif.
 
 ### Visuels
-- **315 cartes avec visuel** sur 423, dont **310 des 353 numérotées** et 5 exclusifs (`MR-VER`, `MR-HAM`, `MR-STE`, `MR-HAK`, `MR-MSC`).
-- Deux sources : PriceCharting (240 px max) et eBay (1600 px, jusqu'à 517 Ko).
+- **335 cartes avec visuel** sur 423, dont **329 des 353 numérotées** et 6
+  exclusifs (`LE 8`, `MR-HAM`, `MR-VER`, `MR-STE`, `MR-HAK`, `MR-MSC`).
+- 60 photos personnelles converties depuis HEIC et déployées (ratio portrait
+  **et** paysage — certaines séries sont horizontales).
 
 ---
 
 ## 4. Problèmes encore ouverts
 
-### 43 numérotées sans visuel
-Presque toutes dans les séries rares, que les vendeurs photographient le moins :
-les **F1 Gold (343-353)** et une partie des **Turbo Chrome (316-340)**.
-→ `tools/ebay_harvest.py` avec d'autres requêtes est le moyen le plus direct de les compléter.
+### Le site est public, sans aucune liste blanche
+C'est le point le plus important. Le mTLS a été retiré et
+`TOPPS_ALLOWED_EMAILS` est vide : **tout compte Google du monde peut créer
+une collection** sur `topps.laurans.org`. Les données restent privées par
+compte, mais le site est ouvert.
+→ Renseigner `TOPPS_ALLOWED_EMAILS` dans `/app/topps/.env`, puis
+`docker compose up -d`. Un redémarrage suffit, aucun redéploiement.
 
-### La collection contient 1 carte possédée
-Probablement un reste de mes tests. À remettre à zéro si ce n'est pas tienne.
+### La migration n'a pas encore tourné en production
+Le code est prêt, la reprise est testée, mais le conteneur en ligne
+tourne encore sur l'ancienne version mono-utilisateur. Au premier
+redémarrage, les quantités existantes seront portées par un compte
+technique, puis récupérées par la première personne qui se connecte.
+
+### 24 numérotées sans visuel
+Presque toutes dans les séries rares que les vendeurs photographient le
+moins : **F1 Gold (343-353)** et **Turbo Chrome (316-340)**.
+→ `tools/ebay_harvest.py` avec d'autres requêtes, ou les photos perso.
+
+### `RR.jpg` toujours non déployé
+Le nom est ambigu : il existe 10 cartes `RR-*`. Il faut savoir laquelle.
 
 ### Les images eBay sont lourdes
-Jusqu'à 517 Ko pièce, ~95 Mo au total. Le panneau d'aperçu charge l'image entière à chaque sélection.
-→ Un redimensionnement à 480 px diviserait le poids par quatre sans perte visible. **Pas fait.**
+Jusqu'à 517 Ko pièce, ~95 Mo au total. Le panneau d'aperçu charge l'image
+entière à chaque sélection.
+→ Un redimensionnement à 480 px diviserait le poids par quatre sans perte
+visible. **Pas fait.**
 
 ### Caddy résout le nom de service au chargement
-Après un `--force-recreate` qui changerait l'IP du conteneur, un `caddy reload` peut être nécessaire.
-→ Documenté dans le README, **jamais rencontré** en pratique (l'IP est restée `172.18.0.7`).
+Après un `--force-recreate` qui changerait l'IP du conteneur, un
+`caddy reload` peut être nécessaire.
+→ Documenté dans le README, **jamais rencontré** en pratique.
 
 ### Le DNS ne marche pas dans les conteneurs en pont d'ociub
-Sans effet sur l'application, mais le build a besoin de `build.network: host`.
+Sans effet sur l'application, mais le build a besoin de
+`build.network: host`.
 → Contourné dans le compose, **à ne pas retirer**.
 
 ### Le miroir APK d'Alpine est injoignable depuis le VPS
@@ -121,10 +154,16 @@ D'où l'absence de `apk add` dans l'image finale.
 
 ## 6. Prochaine action
 
-1. **Vérifier l'alignement des visuels** sur un échantillon au hasard (la seule chose que je ne peux pas faire).
-2. Si des images sont mal rangées : corriger le nom du fichier dans `data/thumbnails/` et redémarrer.
-3. Compléter les 43 trous avec `tools/ebay_harvest.py` et des requêtes ciblées.
-4. Si le poids des images gêne : les redimensionner à 480 px.
+1. **Créer l'ID client OAuth** dans la Google Cloud Console (voir
+   `.env.example` pour les deux URI exactes).
+2. Renseigner `/app/topps/.env` sur ociub, **avec `TOPPS_ALLOWED_EMAILS`**
+   — c'est le moment de le faire, tant que le mTLS protège encore le site.
+3. Déployer, se connecter une fois, vérifier que les anciennes quantités
+   sont bien reprises.
+4. **Ensuite seulement**, retirer le mTLS du vhost Caddy.
+5. Vérifier l'alignement des visuels sur un échantillon (la seule chose que
+   je ne peux pas faire).
+6. Compléter les 24 trous avec `tools/ebay_harvest.py` et des requêtes ciblées.
 
 ---
 
@@ -133,7 +172,8 @@ D'où l'absence de `apk add` dans l'image finale.
 ```sh
 # local
 cd ~/Work/topps
-mise use && go test ./... && go run . -db ./data/topps.db -thumbs ./data/thumbnails
+mise use && go test ./...
+go run . -db ./data/topps.db -thumbs ./data/thumbnails
 
 # serveur
 ssh ociub
@@ -143,4 +183,6 @@ cd /app/topps && git pull && docker compose up -d --build
 ssh ociub 'cd /app/topps && sh backup.sh'
 ```
 
-Le README couvre le déploiement, les deux particularités d'ociub, le reverse proxy et les deux outils de récupération des visuels.
+Le README couvre le déploiement, l'authentification, les deux
+particularités d'ociub, le reverse proxy et les deux outils de récupération
+des visuels.

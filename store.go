@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -20,16 +21,21 @@ var schemaSQL string
 //go:embed seed/turbo-attax-f1-2026.json
 var seedJSON []byte
 
-// Store est la base SQLite. Mono-utilisateur : une écriture à la fois,
-// verrouillage en WAL et pragmas posés à l'ouverture.
+// Store est la base SQLite. Le catalogue est commun et les quantités
+// personnelles ; verrouillage en WAL et pragmas posés à l'ouverture.
 type Store struct{ db *sql.DB }
+
+// legacySub identifie le compte technique qui porte, le temps de la
+// migration, les quantités d'avant l'authentification. Il est réclamé par
+// la première personne qui se connecte, puis supprimé.
+const legacySub = "legacy"
 
 // Catalogue est la forme servie au client : tout le set en un document,
 // 423 cartes tiennent dans ~200 Ko, le navigateur fait le reste.
 type Catalogue struct {
-	Set      SetInfo   `json:"set"`
-	Rarities []Rarity  `json:"rarities"`
-	Cards    []Card    `json:"cards"`
+	Set      SetInfo  `json:"set"`
+	Rarities []Rarity `json:"rarities"`
+	Cards    []Card   `json:"cards"`
 }
 
 type SetInfo struct {
@@ -41,10 +47,10 @@ type SetInfo struct {
 }
 
 type Rarity struct {
-	Code  string `json:"code"`
-	Label string `json:"label"`
-	Ord   int    `json:"ord"`
-	Capped *int  `json:"capped"`
+	Code   string `json:"code"`
+	Label  string `json:"label"`
+	Ord    int    `json:"ord"`
+	Capped *int   `json:"capped"`
 }
 
 type Card struct {
@@ -63,7 +69,7 @@ type Card struct {
 // seedDoc est la forme du fichier seed/*.json, produit par
 // tools/parse_checklist.py depuis le checklist officiel Topps.
 type seedDoc struct {
-	Set      struct {
+	Set struct {
 		Slug      string `json:"slug"`
 		Name      string `json:"name"`
 		Publisher string `json:"publisher"`
@@ -97,18 +103,109 @@ func Open(path string) (*Store, error) {
 	if err != nil {
 		return nil, err
 	}
-	// Un seul utilisateur : une connexion évite les surprises de verrou.
-	db.SetMaxOpenConns(1)
+	// Le catalogue était mono-utilisateur et tenait en une seule connexion.
+	// Plusieurs personnes peuvent maintenant écrire en même temps : quelques
+	// connexions suffisent, le busy_timeout absorbe le reste des attentes.
+	db.SetMaxOpenConns(4)
 	if err := db.Ping(); err != nil {
 		return nil, err
 	}
 	if _, err := db.Exec(schemaSQL); err != nil {
 		return nil, fmt.Errorf("migration: %w", err)
 	}
-	return &Store{db: db}, nil
+	s := &Store{db: db}
+	if err := s.migrateHoldings(); err != nil {
+		return nil, fmt.Errorf("migration des quantités: %w", err)
+	}
+	return s, nil
 }
 
 func (s *Store) Close() error { return s.db.Close() }
+
+// migrateHoldings rattache les quantités existantes à un utilisateur.
+//
+// La table d'origine n'avait pas de colonne user_id et était indexée sur
+// (card_id). SQLite ne sait pas ajouter une colonne faisant partie de la
+// clé primaire : on recrée donc la table dans une transaction, en passant
+// par une table temporaire pour ne jamais se retrouver sans données.
+func (s *Store) migrateHoldings() error {
+	cols, err := s.tableColumns("holdings")
+	if err != nil {
+		return err
+	}
+	if _, ok := cols["user_id"]; ok {
+		// Déjà au bon format : il ne reste qu'à garantir l'index, que
+		// schema.sql ne peut pas créer tout seul (voir la note du fichier).
+		_, err := s.db.Exec(`CREATE INDEX IF NOT EXISTS holdings_card ON holdings (user_id, card_id)`)
+		return err
+	}
+
+	tx, err := s.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+
+	// Compte technique propriétaire des quantités héritées.
+	_, err = tx.Exec(
+		`INSERT INTO users (google_sub, email, name) VALUES (?, '', ?)
+		 ON CONFLICT (google_sub) DO NOTHING`, legacySub, "Collection existante")
+	if err != nil {
+		return err
+	}
+	var legacyID int64
+	if err := tx.QueryRow(`SELECT id FROM users WHERE google_sub = ?`, legacySub).Scan(&legacyID); err != nil {
+		return err
+	}
+
+	if _, err := tx.Exec(`CREATE TABLE holdings_new (
+			user_id   INTEGER NOT NULL REFERENCES users(id)   ON DELETE CASCADE,
+		 card_id   INTEGER NOT NULL REFERENCES cards(id)   ON DELETE CASCADE,
+		 rarity_id INTEGER NOT NULL REFERENCES rarities(id) ON DELETE CASCADE,
+		 qty       INTEGER NOT NULL DEFAULT 0 CHECK (qty >= 0),
+		 PRIMARY KEY (user_id, card_id, rarity_id))`); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`
+		INSERT INTO holdings_new (user_id, card_id, rarity_id, qty)
+		SELECT ?, card_id, rarity_id, qty FROM holdings`, legacyID); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`DROP TABLE holdings`); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`ALTER TABLE holdings_new RENAME TO holdings`); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`CREATE INDEX IF NOT EXISTS holdings_card ON holdings (user_id, card_id)`); err != nil {
+		return err
+	}
+
+	if err := tx.Commit(); err != nil {
+		return err
+	}
+	var moved int
+	_ = s.db.QueryRow(`SELECT count(*) FROM holdings WHERE user_id = ?`, legacyID).Scan(&moved)
+	log.Printf("migration multi-utilisateur : %d quantité(s) rattachées au compte de reprise", moved)
+	return nil
+}
+
+func (s *Store) tableColumns(table string) (map[string]bool, error) {
+	rows, err := s.db.Query(`SELECT name FROM pragma_table_info(?)`, table)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	cols := map[string]bool{}
+	for rows.Next() {
+		var name string
+		if err := rows.Scan(&name); err != nil {
+			return nil, err
+		}
+		cols[name] = true
+	}
+	return cols, rows.Err()
+}
 
 // Seed insère le catalogue s'il est absent. Idempotent : une base déjà
 // peuplée n'est jamais réécrite, les quantités restent intactes.
@@ -188,8 +285,8 @@ func (s *Store) Seed() error {
 	return tx.Commit()
 }
 
-// Catalogue renvoie le set complet avec les quantités actuelles.
-func (s *Store) Catalogue(slug string, hasThumb func(string) bool) (*Catalogue, error) {
+// Catalogue renvoie le set complet avec les quantités d'un utilisateur.
+func (s *Store) Catalogue(userID int64, slug string, hasThumb func(string) bool) (*Catalogue, error) {
 	ctx := context.Background()
 
 	var set SetInfo
@@ -231,9 +328,9 @@ func (s *Store) Catalogue(slug string, hasThumb func(string) bool) (*Catalogue, 
 		 FROM cards c
 		 JOIN card_rarities cr ON cr.card_id = c.id
 		 JOIN rarities r        ON r.id = cr.rarity_id
-		 LEFT JOIN holdings h   ON h.card_id = c.id AND h.rarity_id = r.id
+		 LEFT JOIN holdings h   ON h.card_id = c.id AND h.rarity_id = r.id AND h.user_id = ?
 		 WHERE c.set_id = (SELECT id FROM sets WHERE slug = ?)
-		 ORDER BY c.num_sort, r.ord`, slug)
+		 ORDER BY c.num_sort, r.ord`, userID, slug)
 	if err != nil {
 		return nil, err
 	}
@@ -273,10 +370,10 @@ func (s *Store) Catalogue(slug string, hasThumb func(string) bool) (*Catalogue, 
 	return &Catalogue{Set: set, Rarities: rarities, Cards: cards}, nil
 }
 
-// SetQty fixe la quantité d'un couple (carte, rareté). La valeur est
-// absolue : le client calcule le delta, le serveur ne fait pas
-// l'arithmétique, ce qui évite qu'un double-clic ne compte deux fois.
-func (s *Store) SetQty(cardCode, rarityCode string, qty int) error {
+// SetQty fixe la quantité d'un couple (carte, rareté) pour un utilisateur.
+// La valeur est absolue : le client calcule le delta, le serveur ne fait
+// pas l'arithmétique, ce qui évite qu'un double-clic ne compte deux fois.
+func (s *Store) SetQty(userID int64, cardCode, rarityCode string, qty int) error {
 	if qty < 0 {
 		qty = 0
 	}
@@ -293,12 +390,12 @@ func (s *Store) SetQty(cardCode, rarityCode string, qty int) error {
 		return fmt.Errorf("la carte %s n'existe pas en rareté %s", cardCode, rarityCode)
 	}
 	_, err = s.db.Exec(`
-		INSERT INTO holdings (card_id, rarity_id, qty)
-		SELECT c.id, r.id, ?
+		INSERT INTO holdings (user_id, card_id, rarity_id, qty)
+		SELECT ?, c.id, r.id, ?
 		FROM cards c, rarities r
 		WHERE c.code = ? AND r.code = ?
-		ON CONFLICT (card_id, rarity_id) DO UPDATE SET qty = excluded.qty`,
-		qty, cardCode, rarityCode)
+		ON CONFLICT (user_id, card_id, rarity_id) DO UPDATE SET qty = excluded.qty`,
+		userID, qty, cardCode, rarityCode)
 	return err
 }
 

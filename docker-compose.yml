@@ -3,13 +3,13 @@
 #   ssh ociub && cd /app/topps && git pull && docker compose up -d --build
 #
 # Aucun port n'est publié : le service n'est atteignable que par le
-# reverse proxy (Caddy), qui est l'unique barrière d'accès — le vhost
-# topps.laurans.org exige un certificat client.
+# reverse proxy (Caddy), qui termine le TLS. L'accès est contrôlé par
+# l'authentification Google de l'application elle-même.
 
 services:
   topps:
     build:
-      context: .
+      context: .,
       # Les conteneurs en pont d'ociub reçoivent un nameserver
       # link-local (169.254.169.254) qui n'est pas routable depuis leur
       # namespace : le build ne peut donc pas résoudre proxy.golang.org.
@@ -18,6 +18,10 @@ services:
       network: host
     image: topps:latest
     restart: unless-stopped
+    env_file:
+      # Client ID, secret Google et adresse publique. Jamais versionné :
+      # le fichier est créé sur le serveur à partir de .env.example.
+      - .env
     environment:
       TOPPS_ADDR: ":8080"
       TOPPS_SET: "turbo-attax-f1-2026"

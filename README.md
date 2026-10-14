@@ -3,8 +3,8 @@
 Suivi de collection de cartes **Topps Turbo Attax Formula 1 2026**.
 
 Un binaire Go, une base SQLite, un dossier de visuels facultatif. Aucun
-service externe, aucun compte, aucune authentification dans l'application :
-l'accès est filtré en amont par le reverse proxy, en mTLS.
+service externe : l'authentification est faite par Google dans
+l'application, et chacun ne voit que ses propres quantités.
 
 ![collection](https://img.shields.io/badge/catalogue-423%20cartes-4ea3ff)
 
@@ -54,6 +54,52 @@ dont la quantité de base est non nulle.
 > Si Topps les étend à d'autres séries, seul `VARIANT_SUBSETS` dans
 > `tools/parse_checklist.py` est à changer.
 
+## Comptes et accès
+
+Chaque personne arrive par **Google** et ne voit que ses propres
+quantités : le catalogue est commun, les inventaires ne le sont pas. Deux
+comptes ouverts côte à côte n'ont aucun recouvrement.
+
+### Le flux
+
+OAuth 2.0 « authorization code » avec PKCE, écrit sans dépendance externe
+(`auth.go`) :
+
+1. `/auth/google` tire un `state` aléatoire, un `nonce` et un `verifier`
+   PKCE, et n'enregistre que l'empreinte du `state` en base.
+2. Google renvoie vers `/auth/callback`. Le `state` est consommé à ce
+   moment-là : rejouer l'URL de retour est donc sans effet.
+3. Le code est échangé contre un `id_token`, **dont la signature est
+   vérifiée localement** avec les clés publiques publiées par Google.
+4. Le compte est créé ou mis à jour d'après le `sub` — jamais d'après
+   l'adresse e-mail, qui peut changer ou être recyclée.
+
+Sont contrôlés, dans cet ordre : l'algorithme (RS256 seulement), la
+signature, l'issuer, l'audience, l'`authorized party` quand l'audience est
+multiple, l'expiration, le nonce et `email_verified`. Le tout est couvert
+par `auth_test.go`, avec une clé RSA fabriquée pour l'occasion.
+
+### Sessions
+
+Cookie `tp_s` : `HttpOnly`, `Secure`, `SameSite=Lax`, valable 30 jours. La
+base n'en conserve que l'empreinte SHA-256 — une fuite de la base ne donne
+donc pas de quoi se connecter. `auth_pending` suit les connexions en cours
+et se purge au bout de 15 minutes.
+
+### Restreindre les comptes
+
+`TOPPS_ALLOWED_EMAILS` liste les adresses autorisées, séparées par des
+virgules. **Vide signifie que tout compte Google peut créer une
+collection** : c'est le comportement par défaut, à verrouiller dès que le
+site est public.
+
+### La reprise des données existantes
+
+Avant l'authentification, les quantités n'appartenaient à personne. À la
+migration, un compte technique les porte ; la première personne qui se
+connecte les récupère, et le compte technique disparaît. Si elle a déjà la
+même carte cochée, la quantité existante est conservée.
+
 ## Utiliser
 
 Clic **+1**, clic droit **−1**. Les pastilles d'un carton cochent une
@@ -100,9 +146,26 @@ git pull --ff-only && docker compose up -d --build
 ```
 
 Aucun port n'est publié : le service n'est atteignable que par Caddy, qui
-sert le vhost `topps.laurans.org` **exigeant un certificat client**. Le
-réseau `guacamole_internal` est externe, partagé avec les autres services
-du serveur, et le conteneur s'y attache sous le nom `topps`.
+termine le TLS. L'accès est contrôlé par l'authentification Google de
+l'application (voir plus bas). Le réseau `guacamole_internal` est externe,
+partagé avec les autres services du serveur, et le conteneur s'y attache
+sous le nom `topps`.
+
+### Configurer l'authentification Google
+
+Une fois le dépôt cloné, créer le fichier d'environnement à partir du
+modèle, et y coller les deux valeurs délivrées par Google :
+
+```sh
+cp .env.example .env && chmod 600 .env && $EDITOR .env
+```
+
+Le fichier `.env` est dans `.gitignore` : le secret client ne doit jamais
+atterrir dans le dépôt.
+
+Si les trois variables manquent, le serveur démarre quand même et le dit
+dans ses journaux ; la page de connexion explique alors ce qui manque au
+lieu de renvoyer une erreur technique.
 
 ### Deux particularites d'ociub
 
@@ -114,9 +177,9 @@ service via le DNS intégré de Docker, mais le build échoue sur
 utilise le réseau de l'hôte, l'exécution reste sur `guacamole_internal`.
 
 **Le miroir APK d'Alpine n'est pas fiable depuis le VPS.** D'où pas de
-`apk add` dans l'image finale : ni `ca-certificates` (l'application ne
-sort pas en HTTPS) ni `tzdata` (les journaux sont en UTC). `adduser` vient
-de busybox.
+`apk add` dans l'image finale : ni `ca-certificates` (seul `wget` vers
+localhost est utilisé, la sonde de santé) ni `tzdata` (les journaux sont
+en UTC). `adduser` vient de busybox.
 
 ### Reverse proxy
 
@@ -210,10 +273,18 @@ de la grille se pose déjà sur la manquante suivante.
 
 ## API
 
+Toutes les routes `/api/` exigent une session ; sans cookie valide elles
+renvoient `401`.
+
 | | |
 |---|---|
-| `GET /api/catalogue` | le set entier : cartes, raretés, quantités |
+| `GET /api/me` | la personne connectée (`id`, `email`, `name`, `picture`) |
+| `GET /api/catalogue` | le set entier : cartes, raretés, quantités **du demandeur** |
 | `PUT /api/holding` | `{"card":"316","rarity":"base","qty":2}` |
+
+Hors API, et publics : `/healthz` (sonde Docker), `/login`,
+`/auth/google`, `/auth/callback`, `/logout` et `/static/`. Tout le reste
+exige une session et redirige vers `/login`.
 
 Les quantités sont **absolues** : le client calcule le delta, le serveur ne
 fait pas d'arithmétique, un double-clic ne compte donc pas deux fois.
