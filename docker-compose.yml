@@ -9,7 +9,7 @@
 services:
   topps:
     build:
-      context: .,
+      context: .
       # Les conteneurs en pont d'ociub reçoivent un nameserver
       # link-local (169.254.169.254) qui n'est pas routable depuis leur
       # namespace : le build ne peut donc pas résoudre proxy.golang.org.
