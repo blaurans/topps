@@ -23,7 +23,7 @@
 | **Comptes** | **authentification Google**, multi-utilisateur |
 | **Données** | **une collection par compte** — le catalogue est commun, les quantités sont personnelles |
 | **Barrière d'accès** | **plus de mTLS** : c'est Google qui filtre, Caddy ne fait plus que le TLS |
-| **Liste blanche** | **aucune pour l'instant** : tout compte Google peut créer une collection |
+| **Liste blanche** | **aucune, définitivement** : tout compte Google peut créer une collection |
 | Bibliothèque OAuth | **aucune** : `auth.go` écrit le flux et la vérification de jeton à la main |
 | Repo | **public** — le code et le catalogue sont visibles, la collection ne l'est jamais |
 | Sauvegarde | `backup.sh` via `VACUUM INTO`, quotidienne à 4h17, rétention 30 jours |
@@ -96,13 +96,19 @@
 
 ## 4. Problèmes encore ouverts
 
-### Le site est public, sans aucune liste blanche
-C'est le point le plus important. Le mTLS a été retiré et
-`TOPPS_ALLOWED_EMAILS` est vide : **tout compte Google du monde peut créer
-une collection** sur `topps.laurans.org`. Les données restent privées par
-compte, mais le site est ouvert.
-→ Renseigner `TOPPS_ALLOWED_EMAILS` dans `/app/topps/.env`, puis
-`docker compose up -d`. Un redémarrage suffit, aucun redéploiement.
+### Le site est public — décision assumée, pas un oubli
+Le mTLS a été retiré et `TOPPS_ALLOWED_EMAILS` reste vide : **tout compte
+Google du monde peut créer une collection** sur `topps.laurans.org`. C'est
+un choix explicite du propriétaire, assumé en connaissance de cause.
+
+Ce que cela protège quand même : les collections restent séparées, et
+personne ne voit les quantités d'un autre compte. Ce que cela n'empêche
+pas : la création de comptes à la chaîne par des tiers, et donc des lignes
+`users` inutiles. Le catalogue et les visuels, eux, sont publics de toute
+façon (dépôt public, bucket d'images public).
+
+→ Si l'envie vient de resserrer, une seule ligne dans `/app/topps/.env`
+et un `docker compose up -d` : aucun redéploiement de code.
 
 ### La migration n'a pas encore tourné en production
 Le code est prêt, la reprise est testée, mais le conteneur en ligne
@@ -155,15 +161,18 @@ D'où l'absence de `apk add` dans l'image finale.
 ## 6. Prochaine action
 
 1. **Créer l'ID client OAuth** dans la Google Cloud Console (voir
-   `.env.example` pour les deux URI exactes).
-2. Renseigner `/app/topps/.env` sur ociub, **avec `TOPPS_ALLOWED_EMAILS`**
-   — c'est le moment de le faire, tant que le mTLS protège encore le site.
-3. Déployer, se connecter une fois, vérifier que les anciennes quantités
-   sont bien reprises.
-4. **Ensuite seulement**, retirer le mTLS du vhost Caddy.
-5. Vérifier l'alignement des visuels sur un échantillon (la seule chose que
-   je ne peux pas faire).
-6. Compléter les 24 trous avec `tools/ebay_harvest.py` et des requêtes ciblées.
+   `.env.example` pour les deux URI exactes). C'est le seul élément bloquant.
+2. Me donner le **client ID** et le **client secret**.
+3. Je renseigne `/app/topps/.env` sur ociub et je déploie. Le site est
+   encore protégé par le mTLS à ce moment-là.
+4. Se connecter une fois : c'est ce qui déclenche la reprise des anciennes
+   quantités.
+5. **Ensuite seulement**, retirer le `client_auth` du vhost Caddy.
+
+À noter : l'écran de consentement Google affichera un avertissement
+« application non vérifiée » tant que l'application est en mode Test. C'est
+normal pour un usage privé ; les comptes doivent être ajoutés aux
+utilisateurs de test. Passer en mode Production supprime l'avertissement.
 
 ---
 

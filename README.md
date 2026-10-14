@@ -90,8 +90,10 @@ et se purge au bout de 15 minutes.
 
 `TOPPS_ALLOWED_EMAILS` liste les adresses autorisées, séparées par des
 virgules. **Vide signifie que tout compte Google peut créer une
-collection** : c'est le comportement par défaut, à verrouiller dès que le
-site est public.
+collection** : c'est le réglage retenu ici, le site n'est pas restreint. Le
+journal le signale à chaque démarrage, pour que le choix reste visible.
+
+Renseigner la variable suffit à verrouiller l'accès, sans redéploiement.
 
 ### La reprise des données existantes
 
